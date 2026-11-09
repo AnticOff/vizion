@@ -1,0 +1,14 @@
+# OS and editors
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local tooling
+node_modules/
+*.log
+.claude/
+
+# Pages build output (created by the workflow)
+_site/

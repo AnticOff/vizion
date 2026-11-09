@@ -1,0 +1,31 @@
+/* Design tokens — Vizion. Monochrome red ramp taken from the logo.
+   Every layout size is calc(N * var(--u)) on a 1440 artboard. */
+
+:root {
+  /* unit */
+  --u: min(calc(100vw / 1440), 1.333px);
+
+  /* palette — one hue */
+  --paper: #3d0000;           /* hero background, measured on the logo */
+  --deep: #1c0000;            /* lower sections */
+  --accent: #ff3030;          /* logo line, buttons, display title */
+  --text: #fff1ef;            /* text on dark */
+  --fill-from: #7a2a2a;       /* statement words before they fill (large text only) */
+  --muted: #d98a84;           /* small secondary text, >= 5.29:1 on every dark surface */
+  --frame: #5a0d0d;           /* hero stats frame */
+  --card-dark: #2e0505;
+  --hair: rgba(255, 48, 48, .22);
+  --hair-strong: rgba(255, 48, 48, .45);
+  --track: rgba(255, 241, 239, .25);
+
+  /* type */
+  --font-display: 'Archivo', 'Arial Narrow', sans-serif;
+  --font-ui: 'Inter Tight', system-ui, sans-serif;
+
+  /* motion */
+  --ease: cubic-bezier(.2, .7, .1, 1);
+}
+
+@media (max-width: 760px) {
+  :root { --u: calc(100vw / 390); }
+}

@@ -1,0 +1,289 @@
+/* Components. Sizes in u. Colours only through tokens. */
+
+/* ---------- glass ---------- */
+.glass-light {
+  background: rgba(255, 241, 239, .08);
+  border: 1px solid var(--hair-strong);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  color: var(--text);
+}
+
+/* ---------- nav (segmented pill + sliding pill) ---------- */
+.nav {
+  height: calc(48 * var(--u));
+  display: flex; align-items: center;
+  padding: calc(4 * var(--u));
+  background: var(--deep);
+  border: 1px solid var(--hair-strong);
+  border-radius: 999px;
+}
+.nav a {
+  position: relative; z-index: 1;
+  height: 100%;
+  display: grid; place-items: center;
+  padding-inline: calc(18 * var(--u));
+  font-size: calc(14 * var(--u));
+  color: var(--text);
+  border-radius: 999px;
+  transition: color .3s;
+}
+.nav a.is-on { color: var(--deep); }
+.nav-pill {
+  position: absolute; left: 0;
+  top: calc(4 * var(--u)); bottom: calc(4 * var(--u));
+  width: 0;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: transform .45s var(--ease), width .45s var(--ease);
+}
+
+/* ---------- meta, labels ---------- */
+.meta { font-size: calc(13 * var(--u)); line-height: 1.3; color: var(--muted); }
+.label { font-size: calc(13 * var(--u)); letter-spacing: .02em; color: var(--muted); }
+.dot { font-size: .7em; vertical-align: .15em; color: var(--accent); }
+.about-copy { margin-top: calc(18 * var(--u)); font-size: calc(14 * var(--u)); line-height: 1.35; }
+.availability { font-size: calc(15 * var(--u)); line-height: 1.3; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: calc(8 * var(--u));
+  height: calc(46 * var(--u));
+  padding-inline: calc(20 * var(--u));
+  background: var(--accent); color: var(--deep);
+  border-radius: 999px;
+  font-size: calc(14 * var(--u));
+  font-weight: 600;
+  transition: transform .25s var(--ease);
+}
+.btn:hover { transform: translateY(-1px); }
+
+/* ---------- display title ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 640;
+  font-stretch: 104%;
+  font-size: calc(56 * var(--u)); /* 90u in the base style; 56u keeps clear of the logo's left line */
+  line-height: .86;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.display .line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; } /* the mask */
+.display .line > span { display: block; }
+
+/* ---------- logo ---------- */
+.photo-wrap img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ---------- glass pill with check disc ---------- */
+.glass-pill {
+  display: inline-flex; align-items: center; gap: calc(10 * var(--u));
+  height: calc(44 * var(--u));
+  padding: calc(4 * var(--u)) calc(16 * var(--u)) calc(4 * var(--u)) calc(4 * var(--u));
+  border-radius: 999px;
+  font-size: calc(14 * var(--u));
+  white-space: nowrap;
+}
+.check {
+  display: grid; place-items: center;
+  width: calc(36 * var(--u)); height: calc(36 * var(--u));
+  border-radius: 50%;
+  background: var(--accent);
+}
+.check svg { width: 45%; fill: none; stroke: var(--deep); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- stats frame (hero) ---------- */
+.stats-frame {
+  display: grid; grid-template-columns: 1fr 1fr; gap: calc(6 * var(--u));
+  padding: calc(6 * var(--u));
+  background: var(--frame);
+  border-radius: calc(10 * var(--u));
+}
+.stat-card { position: relative; overflow: hidden; border-radius: calc(6 * var(--u)); }
+.stat-dark {
+  display: flex; flex-direction: column;
+  padding: calc(10 * var(--u));
+  background: var(--deep); color: var(--text);
+}
+.stat-num { font-size: calc(28 * var(--u)); line-height: 1; font-variant-numeric: tabular-nums; }
+.stat-label { margin-top: calc(4 * var(--u)); font-size: calc(11 * var(--u)); color: var(--muted); }
+.marks {
+  display: grid; grid-template-columns: 1fr 1fr; gap: calc(6 * var(--u)) calc(6 * var(--u));
+  margin-top: calc(14 * var(--u));
+  font-size: calc(9.5 * var(--u));
+}
+.marks li { display: flex; align-items: center; gap: calc(4 * var(--u)); }
+.marks svg { width: calc(8 * var(--u)); fill: var(--accent); flex: none; }
+.stat-cta {
+  margin-top: auto;
+  display: flex; justify-content: space-between; align-items: center;
+  height: calc(26 * var(--u)); padding-inline: calc(8 * var(--u));
+  background: var(--accent); color: var(--deep);
+  border-radius: calc(4 * var(--u));
+  font-size: calc(11 * var(--u)); font-weight: 600;
+  transition: transform .25s var(--ease);
+}
+.stat-cta:hover { transform: translateY(-1px); }
+.stat-photo { color: var(--text); background: var(--card-dark); }
+.stat-photo img {
+  position: absolute; left: 50%; top: calc(30 * var(--u));
+  width: auto; height: calc(150 * var(--u));
+  margin-left: calc(-50 * var(--u)); /* rook is ~100u wide at this height */
+}
+.feed { position: absolute; left: calc(10 * var(--u)); top: calc(9 * var(--u)); font-size: calc(10 * var(--u)); color: var(--muted); }
+.stat-photo::before { /* hairline at the top */
+  content: ''; position: absolute;
+  left: calc(10 * var(--u)); right: calc(10 * var(--u)); top: calc(26 * var(--u));
+  height: 1px; background: var(--hair-strong);
+}
+.stat-photo-foot { position: absolute; right: calc(10 * var(--u)); bottom: calc(10 * var(--u)); text-align: right; }
+.stat-caption { margin-top: calc(4 * var(--u)); font-size: calc(10 * var(--u)); line-height: 1.3; }
+
+/* ---------- feature card ---------- */
+.feature-title { font-size: calc(14 * var(--u)); line-height: 1.3; color: var(--muted); }
+.feature-title strong { font-weight: 600; color: var(--text); }
+.feature-card {
+  position: relative; display: block;
+  height: calc(196 * var(--u));
+  margin-top: calc(12 * var(--u));
+  border-radius: calc(8 * var(--u));
+  overflow: hidden;
+}
+.feature-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.55); transform-origin: 62% 45%;
+  transition: transform .6s var(--ease);
+}
+.feature-card:hover img { transform: scale(1.65); }
+.round-btn {
+  position: absolute; right: calc(10 * var(--u)); bottom: calc(10 * var(--u));
+  display: grid; place-items: center;
+  width: calc(40 * var(--u)); height: calc(40 * var(--u));
+  border-radius: 50%;
+  font-size: calc(16 * var(--u));
+  transition: transform .35s var(--ease);
+}
+.feature-card:hover .round-btn { transform: rotate(45deg); }
+.progress { display: block; height: 2px; margin-top: calc(14 * var(--u)); background: var(--track); }
+.progress-fill { display: block; width: 40%; height: 100%; background: var(--accent); transform-origin: left; }
+
+/* ---------- band ---------- */
+.band-row {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-size: calc(14 * var(--u));
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.band-scroll { display: inline-flex; align-items: center; gap: calc(12 * var(--u)); }
+.round-accent {
+  display: grid; place-items: center;
+  width: calc(34 * var(--u)); height: calc(34 * var(--u));
+  border-radius: 50%; background: var(--accent); color: var(--deep);
+  font-family: var(--font-ui); font-stretch: 100%;
+}
+
+/* ---------- statement ---------- */
+.statement {
+  width: calc(900 * var(--u));
+  margin-inline: auto;
+  text-align: center;
+  color: var(--fill-from);
+  font-size: calc(52 * var(--u));
+  line-height: 1.33;
+  letter-spacing: -.028em;
+}
+.sub {
+  margin: calc(150 * var(--u)) auto 0;
+  text-align: center;
+  color: var(--text);
+  font-size: calc(23 * var(--u));
+  line-height: 1.35;
+}
+
+/* ---------- services panel ---------- */
+.panel { border: 1px solid var(--hair-strong); border-radius: calc(14 * var(--u)); color: var(--text); }
+.panel-title { font-size: calc(55 * var(--u)); font-weight: 500; line-height: 1; letter-spacing: -.02em; }
+.panel-copy { margin-top: calc(24 * var(--u)); font-size: calc(14.5 * var(--u)); line-height: 1.45; color: var(--muted); }
+.tile {
+  position: absolute;
+  display: grid; place-items: center;
+  width: calc(88 * var(--u)); height: calc(88 * var(--u));
+  border-radius: calc(12 * var(--u));
+  color: var(--accent);
+}
+.tile svg { width: calc(30 * var(--u)); fill: currentColor; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.tile-1 svg { fill: none; }
+.tile-1 { left: calc(150 * var(--u)); top: calc(-30 * var(--u)); } /* top right of line 1 */
+.tile-2 { left: calc(250 * var(--u)); top: calc(150 * var(--u)); } /* over line 4 */
+
+.trust-card {
+  height: calc(326 * var(--u));
+  border-radius: calc(8 * var(--u));
+  transition: transform .35s var(--ease);
+}
+.trust-card:hover, .trust-card.is-lifted { transform: translateY(calc(-6 * var(--u))); }
+.card-red, .card-dark { display: flex; flex-direction: column; padding: calc(20 * var(--u)); }
+.card-red  { width: calc(293 * var(--u)); background: var(--accent); color: var(--deep); }
+.card-dark { width: calc(298 * var(--u)); background: var(--card-dark); color: var(--text); }
+.card-portrait { width: calc(200 * var(--u)); flex: none; overflow: hidden; background: var(--card-dark); }
+.star { /* four-point star from the deck, recoloured through a mask so it stays in the red ramp */
+  display: block; width: 100%; height: 100%;
+  background: var(--accent);
+  -webkit-mask: url('../assets/img/star.webp') center / 180% no-repeat;
+          mask: url('../assets/img/star.webp') center / 180% no-repeat;
+}
+.discs { display: grid; grid-template-columns: repeat(4, calc(48 * var(--u))); gap: calc(14 * var(--u)); }
+.discs span {
+  display: grid; place-items: center;
+  width: calc(48 * var(--u)); height: calc(48 * var(--u));
+  border-radius: 50%;
+  background: var(--deep); color: var(--accent);
+  font-size: calc(13 * var(--u)); font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.card-list { margin-top: calc(18 * var(--u)); font-size: calc(12.5 * var(--u)); line-height: 1.5; font-weight: 600; }
+.card-foot { margin-top: auto; }
+.card-num { font-size: calc(43 * var(--u)); line-height: 1; font-variant-numeric: tabular-nums; }
+.card-label { margin-top: calc(6 * var(--u)); font-size: calc(14 * var(--u)); }
+.card-dark .card-label { color: var(--muted); }
+.card-hands { width: calc(170 * var(--u)); height: auto; margin: calc(22 * var(--u)) auto 0; }
+.card-note { margin-top: auto; font-size: calc(12 * var(--u)); line-height: 1.5; color: var(--muted); }
+.card-note li::before { content: '● '; font-size: .7em; vertical-align: .15em; color: var(--accent); }
+
+/* ---------- projects ---------- */
+.projects-title {
+  font-family: var(--font-display);
+  font-weight: 640; font-stretch: 104%;
+  font-size: calc(56 * var(--u)); line-height: .9; letter-spacing: -.04em;
+  text-transform: uppercase; color: var(--accent);
+}
+.project img {
+  width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover;
+  border-radius: calc(8 * var(--u));
+  transition: transform .35s var(--ease);
+}
+.project:hover img { transform: translateY(calc(-6 * var(--u))); }
+.project-name { margin-top: calc(14 * var(--u)); font-size: calc(15 * var(--u)); }
+
+/* ---------- footer ---------- */
+.footer-line .rule { height: calc(4 * var(--u)); background: var(--accent); }
+.footer-mark { width: calc(300 * var(--u)); height: auto; flex: none; }
+
+@media (max-width: 760px) {
+  .display { font-size: calc(48 * var(--u)); }
+  .nav a { padding-inline: calc(12 * var(--u)); font-size: calc(13 * var(--u)); }
+  .btn-contact { flex: none; width: calc(40 * var(--u)); height: calc(40 * var(--u)); padding: 0; border-radius: calc(10 * var(--u)); } /* square arrow button */
+  .btn-contact .btn-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .glass-pill { align-self: flex-start; }
+  .statement { width: auto; font-size: calc(28 * var(--u)); }
+  .statement br, .sub br { display: none; }
+  .sub { margin-top: calc(64 * var(--u)); font-size: calc(18 * var(--u)); }
+  .panel-title { font-size: calc(44 * var(--u)); }
+  .tile-1 { left: auto; right: 0; top: calc(-8 * var(--u)); }
+  .tile-2 { display: none; }
+  .card-red, .card-dark, .card-portrait { width: auto; }
+  .card-portrait { height: calc(200 * var(--u)); }
+  .projects-title { font-size: calc(40 * var(--u)); }
+  .footer-mark { width: calc(200 * var(--u)); }
+}

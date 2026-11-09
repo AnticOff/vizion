@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vizion — Un aperçu de l’avenir</title>
+  <meta name="description" content="Vizion crée des designs, des assets 3D, du game design et du level design pour vos jeux vidéo, avec un suivi pendant et après le rendu.">
+  <meta name="theme-color" content="#3d0000">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <!-- Pre-hide animated elements only when JS runs; safety net if a module fails. -->
+  <script>
+    document.documentElement.classList.add('js', 'is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
+  </script>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/motion.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="artboard hero-board">
+
+      <div class="hero-top">
+        <nav class="nav" data-nav aria-label="Navigation principale">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="index.html" aria-current="page">Accueil</a>
+          <a href="bibliotheque.html">Bibliothèque</a>
+          <a href="tarifs.html">Tarifs</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
+        <a class="btn btn-contact" href="#contact" data-rise>
+          <span class="btn-label">Nous contacter</span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <h1 class="display">
+        <span class="visually-hidden">Vizion, </span>
+        <span class="line" data-title-line><span>Un aperçu</span></span>
+        <span class="line" data-title-line><span>de l’avenir</span></span>
+      </h1>
+
+      <div class="about">
+        <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (À PROPOS)</p>
+        <p class="about-copy" data-rise>Designs, assets 3D, game design<br>et level design pour vos jeux.</p>
+        <a class="btn btn-cta" href="#contact" data-rise>Démarrer un projet <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="hero-media">
+        <div class="photo-wrap" data-drift>
+          <img data-hero-photo src="assets/img/logo.webp" width="1400" height="1400"
+               alt="Logo Vizion : le mot Vizion tracé d’une ligne rouge continue, le O remplacé par un œil" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+
+      <p class="glass-pill glass-light" data-rise>
+        <span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>
+        Suivi après le rendu
+      </p>
+
+      <p class="availability" data-rise>Création dirigée<br><span class="dot" aria-hidden="true">●</span> avec vous</p>
+
+      <div class="stats-frame" data-rise>
+        <div class="stat-card stat-dark">
+          <p class="stat-num"><span data-count="4" data-count-on="load">4</span></p>
+          <p class="stat-label">Prestations</p>
+          <ul class="marks">
+            <li><svg viewBox="0 0 10 10" aria-hidden="true"><circle cx="5" cy="5" r="4" /></svg>Designs</li>
+            <li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1 9 9H1Z" /></svg>Assets 3D</li>
+            <li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1 9 5 5 9 1 5Z" /></svg>Game design</li>
+            <li><svg viewBox="0 0 10 10" aria-hidden="true"><rect x="1" y="2" width="3" height="6" /><rect x="6" y="2" width="3" height="6" /></svg>Level design</li>
+          </ul>
+          <a class="stat-cta" href="#contact">Nous contacter <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="stat-card stat-photo">
+          <img src="assets/img/rook.webp" width="245" height="367" alt="" loading="lazy" decoding="async">
+          <p class="feed">Rendu 3D</p>
+          <div class="stat-photo-foot">
+            <p class="stat-num"><span data-count="3" data-count-on="load">3</span></p>
+            <p class="stat-caption">Projets<br>présentés</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature" data-rise>
+        <p class="feature-title">À la une<br><strong>The Forest 2</strong><br>Voir les projets</p>
+        <a class="feature-card" href="#projets">
+          <img src="assets/img/feature.webp" width="1200" height="680" alt="Forêt d’automne traversée par un ruisseau, dans The Forest 2" loading="lazy" decoding="async">
+          <span class="round-btn glass-light arrow" aria-hidden="true">↗</span>
+          <span class="visually-hidden">Voir les projets</span>
+        </a>
+        <span class="progress" aria-hidden="true"><span class="progress-fill" data-draw></span></span>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ BAND ============ -->
+    <div class="band">
+      <div class="artboard band-row">
+        <p>Studio <span class="muted">Vizion</span></p>
+        <a class="band-scroll" href="#manifeste">Défiler <span class="round-accent" aria-hidden="true">↓</span></a>
+        <p class="muted">Un aperçu de l’avenir</p>
+      </div>
+    </div>
+
+    <!-- ============ STATEMENT ============ -->
+    <section class="statement-section" id="manifeste" aria-label="Manifeste">
+      <p class="statement" data-fill>Vizion crée des designs et des assets 3D,<br>du game design et du level design.<br>Nous dirigeons la création avec vous,<br>livrons vite, à des tarifs flexibles,<br>et restons là après le rendu.</p>
+      <p class="sub">Création dirigée, accompagnement personnalisé.<br><span class="muted">Un aperçu de l’avenir.</span></p>
+    </section>
+
+    <!-- ============ SERVICES PANEL ============ -->
+    <section class="trust" id="services" aria-labelledby="services-title">
+      <div class="panel is-pre" data-trust>
+        <div class="panel-intro">
+          <h2 class="panel-title" id="services-title">Nos<br>services,<br>nos<br>avantages</h2>
+          <p class="panel-copy">Une seule équipe pour le design, la 3D<br>et le game design, avec un suivi pendant<br>et après le rendu de votre projet.</p>
+          <span class="tile tile-1 glass-light" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9" /></svg>
+          </span>
+          <span class="tile tile-2 glass-light" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="2.4" /><circle cx="16" cy="8" r="2.4" /><circle cx="8" cy="16" r="2.4" /><circle cx="16" cy="16" r="2.4" /></svg>
+          </span>
+        </div>
+
+        <div class="cards">
+          <article class="trust-card card-red">
+            <div class="discs" aria-hidden="true">
+              <span data-avatar>01</span><span data-avatar>02</span><span data-avatar>03</span><span data-avatar>04</span>
+            </div>
+            <ul class="card-list">
+              <li>Création de designs et assets 3D</li>
+              <li>Game design et level design</li>
+              <li>Accompagnement personnalisé</li>
+              <li>Création dirigée</li>
+            </ul>
+            <div class="card-foot">
+              <p class="card-num"><span data-count="4" data-count-on="reveal">4</span></p>
+              <p class="card-label">Prestations</p>
+            </div>
+          </article>
+
+          <article class="trust-card card-dark" data-awards>
+            <p class="card-num"><span data-count="3" data-count-on="reveal">3</span></p>
+            <p class="card-label">Avantages</p>
+            <img class="card-hands" src="assets/img/hands.webp" width="369" height="171" alt="" loading="lazy" decoding="async">
+            <ul class="card-note">
+              <li>Rapidité des rendus</li>
+              <li>Tarifs accessibles et flexibles</li>
+              <li>Suivi client pendant et après le rendu</li>
+            </ul>
+          </article>
+
+          <div class="trust-card card-portrait" aria-hidden="true">
+            <span class="star"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects" id="projets" aria-labelledby="projets-title">
+      <div class="artboard projects-inner">
+        <div class="projects-head">
+          <p class="label"><span class="dot" aria-hidden="true">●</span> (PROJETS)</p>
+          <h2 class="projects-title" id="projets-title">Nos projets</h2>
+        </div>
+        <ul class="project-grid is-pre" data-stagger>
+          <li class="project">
+            <img src="assets/img/project-zelda.webp" width="810" height="1080" alt="Un jeune héros en tunique verte, bouclier dans le dos, au bord d’un sentier en forêt" loading="lazy" decoding="async">
+            <p class="project-name">Zelda Ocarina Of Time</p>
+          </li>
+          <li class="project">
+            <img src="assets/img/project-caravan.webp" width="432" height="576" alt="Un personnage debout sur un van jaune, au bord d’une falaise face à la mer" loading="lazy" decoding="async">
+            <p class="project-name">Sand Witch Caravane</p>
+          </li>
+          <li class="project">
+            <img src="assets/img/project-forest.webp" width="810" height="1080" alt="Ruisseau dans une forêt de pins, lumière du matin" loading="lazy" decoding="async">
+            <p class="project-name">The Forest 2</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORE ============ -->
+    <section class="explore" aria-labelledby="explore-title">
+      <div class="artboard section-inner">
+        <p class="label"><span class="dot" aria-hidden="true">●</span> (EXPLORER)</p>
+        <h2 class="section-title" id="explore-title">Aller plus loin</h2>
+        <div class="explore-grid is-pre" data-stagger>
+          <a class="explore-card" href="bibliotheque.html">
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (BIBLIOTHÈQUE 3D)</p>
+            <p class="explore-title">Modèles<br>3D</p>
+            <p class="explore-copy">Pièces, reliques, armes et formes chromées, à faire tourner dans le navigateur.</p>
+            <img class="explore-img" src="assets/img/rook.webp" width="245" height="367" alt="" loading="lazy" decoding="async">
+            <span class="round-btn glass-light" aria-hidden="true">↗</span>
+          </a>
+          <a class="explore-card explore-card--red" href="tarifs.html">
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (TARIFS)</p>
+            <p class="explore-title">Tarifs<br>flexibles</p>
+            <p class="explore-copy">Formules, prix à l’unité et devis sur mesure pour les grandes entreprises.</p>
+            <img class="explore-img explore-img--wide" src="assets/img/hands.webp" width="369" height="171" alt="" loading="lazy" decoding="async">
+            <span class="round-btn" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-line">
+      <span class="rule" aria-hidden="true"></span>
+      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+    <div class="artboard footer-row">
+      <p class="label"><span class="dot" aria-hidden="true">●</span> (CONTACT)</p>
+      <a class="btn" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
+      <p class="muted">© Vizion — Un aperçu de l’avenir</p>
+    </div>
+  </footer>
+</body>
+</html>

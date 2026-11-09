@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bibliothèque 3D — Vizion</title>
+  <meta name="description" content="La bibliothèque de modèles 3D de Vizion : pièces, reliques, armes et formes, à faire tourner dans le navigateur.">
+  <meta name="theme-color" content="#3d0000">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <script>
+    document.documentElement.classList.add('js', 'is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/library.css">
+  <link rel="stylesheet" href="css/motion.css">
+  <!-- library.js first: it renders the cards that main.js animates -->
+  <script type="module" src="js/pages/library.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <canvas class="gl-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============ PAGE HERO ============ -->
+  <header class="hero page-hero">
+    <div class="artboard hero-board page-board">
+      <svg class="signature" viewBox="0 0 1440 640" preserveAspectRatio="none" aria-hidden="true" data-line>
+        <path d="M700 -10 V600 H1450" />
+      </svg>
+
+      <div class="hero-top">
+        <nav class="nav" data-nav aria-label="Navigation principale">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="index.html">Accueil</a>
+          <a href="bibliotheque.html" aria-current="page">Bibliothèque</a>
+          <a href="tarifs.html">Tarifs</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
+        <a class="btn btn-contact" href="#contact" data-rise>
+          <span class="btn-label">Nous contacter</span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <h1 class="display display--xl">
+        <span class="line" data-title-line><span>Modèles</span></span>
+        <span class="line" data-title-line><span>3D</span></span>
+      </h1>
+
+      <div class="page-intro">
+        <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (BIBLIOTHÈQUE)</p>
+        <p class="about-copy" data-rise>Pièces, reliques, armes et formes chromées.<br>Faites-les tourner, changez leur finition.</p>
+        <p class="page-stat" data-rise><span class="num" data-model-count data-count-on="load">13</span><span class="lbl">modèles en temps réel</span></p>
+      </div>
+
+      <div class="hero-stage" data-view="oeil" data-finish="chrome" data-rise>
+        <div class="hero-stage-foot">
+          <p><strong>Œil Vizion</strong>La signature du studio, en volume</p>
+          <button class="round-btn glass-light" type="button" data-open-model="oeil" aria-label="Ouvrir l’Œil Vizion dans la visionneuse">↗</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ BAND ============ -->
+    <div class="band">
+      <div class="artboard band-row">
+        <p>Studio <span class="muted">Vizion</span></p>
+        <a class="band-scroll" href="#modeles">Explorer <span class="round-accent" aria-hidden="true">↓</span></a>
+        <p class="muted">Un aperçu de l’avenir</p>
+      </div>
+    </div>
+
+    <!-- ============ LIBRARY ============ -->
+    <section class="library" id="modeles" aria-labelledby="modeles-title">
+      <div class="artboard section-inner">
+        <div class="section-head">
+          <div>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (COLLECTION)</p>
+            <h2 class="section-title" id="modeles-title">Toute la bibliothèque</h2>
+          </div>
+          <div class="segmented" role="group" aria-label="Filtrer par catégorie" data-filters></div>
+        </div>
+        <div class="model-grid is-pre" data-model-grid data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <h2 class="cta-title" id="cta-title">Un modèle sur mesure<br>pour votre jeu&#8239;?</h2>
+        <div class="cta-actions">
+          <a class="btn" href="tarifs.html#devis">Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#contact">Nous contacter <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ VIEWER ============ -->
+  <dialog class="viewer" data-viewer aria-labelledby="viewer-title">
+    <div class="viewer-stage">
+      <p class="viewer-hint">Glisser pour tourner, molette ou pincement pour zoomer</p>
+    </div>
+    <div class="viewer-side">
+      <div class="viewer-top">
+        <div>
+          <h2 class="viewer-title" id="viewer-title" data-viewer-title>Modèle</h2>
+          <p class="viewer-cat" data-viewer-cat></p>
+        </div>
+        <button class="viewer-close" type="button" data-viewer-close aria-label="Fermer la visionneuse">×</button>
+      </div>
+      <dl class="viewer-stats">
+        <div><dt>Triangles</dt><dd data-stat="triangles">0</dd></div>
+        <div><dt>Sommets</dt><dd data-stat="vertices">0</dd></div>
+        <div><dt>Pièces</dt><dd data-stat="parts">0</dd></div>
+      </dl>
+      <div>
+        <p class="viewer-label" id="finish-label">Finition</p>
+        <div class="segmented" role="group" aria-labelledby="finish-label" data-finishes>
+          <span class="nav-pill" aria-hidden="true"></span>
+          <button type="button" data-finish="chrome" aria-pressed="true">Chrome</button>
+          <button type="button" data-finish="rouge" aria-pressed="false">Rouge laqué</button>
+          <button type="button" data-finish="bordeaux" aria-pressed="false">Bordeaux</button>
+        </div>
+      </div>
+      <button class="viewer-toggle" type="button" data-autorotate aria-pressed="true">
+        <span class="switch" aria-hidden="true"></span> Rotation automatique
+      </button>
+      <a class="btn" href="tarifs.html#devis">Demander ce modèle <span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </dialog>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-line">
+      <span class="rule" aria-hidden="true"></span>
+      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+    <div class="artboard footer-row">
+      <p class="label"><span class="dot" aria-hidden="true">●</span> (CONTACT)</p>
+      <a class="btn" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
+      <p class="muted">© Vizion — Un aperçu de l’avenir</p>
+    </div>
+  </footer>
+</body>
+</html>

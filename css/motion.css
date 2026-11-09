@@ -1,0 +1,20 @@
+/* Initial states for the intro and the panel reveal.
+   html.js.is-loading is removed by js/motion/intro.js when the intro starts
+   (or after 3 s by the inline safety script if a module fails). */
+
+.js.is-loading [data-title-line] > span { transform: translateY(110%); }
+.js.is-loading [data-hero-photo],
+.js.is-loading [data-nav],
+.js.is-loading [data-rise] { opacity: 0; }
+.js.is-loading [data-draw] { transform: scaleX(0); }
+.js.is-loading [data-line] { opacity: 0; }
+
+.js [data-trust].is-pre [data-avatar] { opacity: 0; transform: scale(.4); }
+
+/* library cards and pricing cards enter when their section scrolls in */
+.js [data-stagger].is-pre > * { opacity: 0; transform: translateY(14px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js.is-loading *, .js [data-trust].is-pre [data-avatar],
+  .js [data-stagger].is-pre > * { opacity: 1 !important; transform: none !important; }
+}

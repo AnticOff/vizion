@@ -1,0 +1,14 @@
+{
+  "name": "vizion-site",
+  "private": true,
+  "description": "Vizion — Un aperçu de l’avenir. Static site: home, 3D library, pricing.",
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node tools/test-estimate.mjs"
+  }
+}
