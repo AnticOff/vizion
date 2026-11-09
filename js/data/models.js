@@ -3,30 +3,30 @@
 // `sway: true` swings the model instead of spinning it (front-facing objects).
 
 export const CATEGORIES = {
-  pieces: 'Pièces',
-  reliques: 'Reliques',
-  armes: 'Armes',
-  formes: 'Formes',
+  pieces: { en: 'Pieces', fr: 'Pièces' },
+  reliques: { en: 'Relics', fr: 'Reliques' },
+  armes: { en: 'Weapons', fr: 'Armes' },
+  formes: { en: 'Shapes', fr: 'Formes' },
 };
 
 export const MODELS = [
-  { id: 'oeil', name: 'Œil Vizion', category: 'reliques', material: 'chrome', sway: true },
-  { id: 'tour', name: 'Tour', category: 'pieces', material: 'chrome' },
-  { id: 'reine', name: 'Reine', category: 'pieces', material: 'chrome' },
-  { id: 'pion', name: 'Pion', category: 'pieces', material: 'bordeaux' },
-  { id: 'couronne', name: 'Couronne', category: 'reliques', material: 'chrome' },
-  { id: 'calice', name: 'Calice', category: 'reliques', material: 'bordeaux' },
-  { id: 'anneau', name: 'Anneau', category: 'reliques', material: 'chrome' },
-  { id: 'epee', name: 'Épée', category: 'armes', material: 'chrome' },
-  { id: 'hache', name: 'Hache', category: 'armes', material: 'chrome' },
-  { id: 'bouclier', name: 'Bouclier', category: 'armes', material: 'bordeaux', sway: true },
-  { id: 'cristal', name: 'Cristal', category: 'formes', material: 'rouge' },
-  { id: 'noeud', name: 'Nœud', category: 'formes', material: 'chrome' },
-  { id: 'monolithe', name: 'Monolithe', category: 'formes', material: 'rouge' },
+  { id: 'oeil', name: { en: 'Vizion Eye', fr: 'Œil Vizion' }, category: 'reliques', material: 'chrome', sway: true },
+  { id: 'tour', name: { en: 'Rook', fr: 'Tour' }, category: 'pieces', material: 'chrome' },
+  { id: 'reine', name: { en: 'Queen', fr: 'Reine' }, category: 'pieces', material: 'chrome' },
+  { id: 'pion', name: { en: 'Pawn', fr: 'Pion' }, category: 'pieces', material: 'bordeaux' },
+  { id: 'couronne', name: { en: 'Crown', fr: 'Couronne' }, category: 'reliques', material: 'chrome' },
+  { id: 'calice', name: { en: 'Chalice', fr: 'Calice' }, category: 'reliques', material: 'bordeaux' },
+  { id: 'anneau', name: { en: 'Ring', fr: 'Anneau' }, category: 'reliques', material: 'chrome' },
+  { id: 'epee', name: { en: 'Sword', fr: 'Épée' }, category: 'armes', material: 'chrome' },
+  { id: 'hache', name: { en: 'Axe', fr: 'Hache' }, category: 'armes', material: 'chrome' },
+  { id: 'bouclier', name: { en: 'Shield', fr: 'Bouclier' }, category: 'armes', material: 'bordeaux', sway: true },
+  { id: 'cristal', name: { en: 'Crystal', fr: 'Cristal' }, category: 'formes', material: 'rouge' },
+  { id: 'noeud', name: { en: 'Knot', fr: 'Nœud' }, category: 'formes', material: 'chrome' },
+  { id: 'monolithe', name: { en: 'Monolith', fr: 'Monolithe' }, category: 'formes', material: 'rouge' },
 ];
 
 export const FINISHES = {
-  chrome: 'Chrome',
-  rouge: 'Rouge laqué',
-  bordeaux: 'Bordeaux',
+  chrome: { en: 'Chrome', fr: 'Chrome' },
+  rouge: { en: 'Red lacquer', fr: 'Rouge laqué' },
+  bordeaux: { en: 'Burgundy', fr: 'Bordeaux' },
 };

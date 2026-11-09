@@ -9,10 +9,16 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { $, $$, play } from '../motion/env.js';
 import { initSlidingPill } from '../motion/nav-pill.js';
 import { MODELS, CATEGORIES } from '../data/models.js';
+import { LANG, t } from '../i18n.js';
+import { addModelToQuote } from '../quote-store.js';
 import { buildModel, disposeModel } from './build-models.js';
 import { createMaterials, applyFinish } from './materials.js';
 
-const nf = new Intl.NumberFormat('fr-FR');
+const nf = new Intl.NumberFormat(LANG === 'fr' ? 'fr-FR' : 'en-GB');
+const S = {
+  en: { tris: 'triangles', added: (n) => `Added to your quote: ${n}.`, view: 'View my quote' },
+  fr: { tris: 'triangles', added: (n) => `Ajouté à votre devis : ${n}.`, view: 'Voir mon devis' },
+}[LANG];
 const BASE_ANGLE = 0.6;   // resting yaw, radians
 const SPIN = 0.45;        // rad/s
 const SPIN_HOVER = 1.8;   // rad/s
@@ -94,7 +100,7 @@ export function initLibraryScene({ reduced = false } = {}) {
   // triangle counts are measured on the real geometry
   views.forEach(({ el, model }) => {
     const out = $(`[data-tris="${el.dataset.view}"]`);
-    if (out) out.textContent = `${nf.format(model.userData.stats.triangles)} triangles`;
+    if (out) out.textContent = `${nf.format(model.userData.stats.triangles)} ${S.tris}`;
   });
 
   const resize = () => {
@@ -201,6 +207,15 @@ export function initLibraryScene({ reduced = false } = {}) {
       toggle.setAttribute('aria-pressed', String(controls.autoRotate));
     });
     $('[data-viewer-close]', dialog).addEventListener('click', () => dialog.close());
+
+    // add the open model to the quote cart (stored in localStorage, read by the pricing page)
+    const addStatus = $('[data-add-status]', dialog);
+    $('[data-add-quote]', dialog).addEventListener('click', () => {
+      if (!state.id) return;
+      addModelToQuote(state.id);
+      const name = t(MODELS.find((m) => m.id === state.id).name);
+      addStatus.innerHTML = `${S.added(name)} <a href="${addStatus.dataset.quoteHref}">${S.view} ↗</a>`;
+    });
     dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); }); // backdrop
     dialog.addEventListener('close', () => {
       vr.setAnimationLoop(null);
@@ -230,8 +245,9 @@ export function initLibraryScene({ reduced = false } = {}) {
       controls.update();
 
       const stats = state.model.userData.stats;
-      $('[data-viewer-title]', dialog).textContent = info.name;
-      $('[data-viewer-cat]', dialog).textContent = CATEGORIES[info.category];
+      $('[data-viewer-title]', dialog).textContent = t(info.name);
+      $('[data-viewer-cat]', dialog).textContent = t(CATEGORIES[info.category]);
+      addStatus.textContent = '';
       $('[data-stat="triangles"]', dialog).textContent = nf.format(stats.triangles);
       $('[data-stat="vertices"]', dialog).textContent = nf.format(stats.vertices);
       $('[data-stat="parts"]', dialog).textContent = nf.format(stats.parts);

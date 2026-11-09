@@ -117,7 +117,10 @@
 }
 .viewer-toggle[aria-pressed="true"] .switch { background: var(--accent); }
 .viewer-toggle[aria-pressed="true"] .switch::after { transform: translateX(16px); background: var(--deep); }
-.viewer-side .btn { margin-top: auto; align-self: flex-start; }
+.viewer-actions { margin-top: auto; display: grid; gap: 10px; justify-items: start; }
+.viewer-actions .btn { border: 0; cursor: pointer; font-family: inherit; }
+.viewer-added { min-height: 1.4em; font-size: 13px; color: var(--muted); }
+.viewer-added a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
 
 @media (max-width: 1100px) {
   .model-grid { grid-template-columns: repeat(3, 1fr); }

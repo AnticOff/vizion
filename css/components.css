@@ -28,6 +28,18 @@
   transition: color .3s;
 }
 .nav a.is-on { color: var(--deep); }
+/* language switch: a small round link at the end of the nav, outside the sliding pill */
+.nav .lang-switch {
+  flex: none;
+  width: calc(36 * var(--u)); height: calc(36 * var(--u));
+  margin-left: calc(6 * var(--u));
+  padding: 0;
+  border: 1px solid var(--hair-strong); border-radius: 50%;
+  font-size: calc(12 * var(--u)); font-weight: 600; letter-spacing: .04em;
+  color: var(--accent);
+  transition: background-color .25s, color .25s;
+}
+.nav .lang-switch:hover { background: var(--accent); color: var(--deep); }
 .nav-pill {
   position: absolute; left: 0;
   top: calc(4 * var(--u)); bottom: calc(4 * var(--u));
@@ -269,6 +281,8 @@
 @media (max-width: 760px) {
   .display { font-size: calc(48 * var(--u)); }
   .nav a { padding-inline: calc(12 * var(--u)); font-size: calc(13 * var(--u)); }
+  .nav .nav-contact { display: none; } /* the square contact button is next to the nav */
+  .nav .lang-switch { width: calc(34 * var(--u)); height: calc(34 * var(--u)); padding: 0; }
   .btn-contact { flex: none; width: calc(40 * var(--u)); height: calc(40 * var(--u)); padding: 0; border-radius: calc(10 * var(--u)); } /* square arrow button */
   .btn-contact .btn-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .glass-pill { align-self: flex-start; }

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Library — Vizion</title>
+  <meta name="description" content="Vizion’s library of 3D models: pieces, relics, weapons and shapes you can turn in your browser.">
+  <meta name="theme-color" content="#3d0000">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/library.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/bibliotheque.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/library.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  <script>
+    document.documentElement.classList.add('js', 'is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/library.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/motion.css">
+  <!-- library.js first: it renders the cards that main.js animates -->
+  <script type="module" src="js/pages/library.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas class="gl-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============ PAGE HERO ============ -->
+  <header class="hero page-hero">
+    <div class="artboard hero-board page-board">
+      <svg class="signature" viewBox="0 0 1440 640" preserveAspectRatio="none" aria-hidden="true" data-line>
+        <path d="M700 -10 V600 H1450" />
+      </svg>
+
+      <div class="hero-top">
+        <!-- partial:nav -->
+        <nav class="nav" data-nav aria-label="Main navigation">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="index.html">Home</a>
+          <a href="library.html" aria-current="page">Library</a>
+          <a href="pricing.html">Pricing</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="lang-switch" href="fr/bibliotheque.html" hreflang="fr" lang="fr" aria-label="Version française de cette page">FR</a>
+        </nav>
+        <!-- /partial:nav -->
+        <p class="meta" data-rise>Creative studio<br>Video games</p>
+        <a class="btn btn-contact" href="#contact" data-rise>
+          <span class="btn-label">Contact us</span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <h1 class="display display--xl">
+        <span class="line" data-title-line><span>3D</span></span>
+        <span class="line" data-title-line><span>models</span></span>
+      </h1>
+
+      <div class="page-intro">
+        <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (LIBRARY)</p>
+        <p class="about-copy" data-rise>Chrome pieces, relics, weapons and shapes.<br>Turn them around, change their finish.</p>
+        <p class="page-stat" data-rise><span class="num" data-model-count data-count-on="load">13</span><span class="lbl">real-time models</span></p>
+      </div>
+
+      <div class="hero-stage" data-view="oeil" data-finish="chrome" data-rise>
+        <div class="hero-stage-foot">
+          <p><strong>Vizion Eye</strong>The studio’s signature, in 3D</p>
+          <button class="round-btn glass-light" type="button" data-open-model="oeil" aria-label="Open the Vizion Eye in the viewer">↗</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ BAND ============ -->
+    <div class="band">
+      <div class="artboard band-row">
+        <p>Studio <span class="muted">Vizion</span></p>
+        <a class="band-scroll" href="#models">Explore <span class="round-accent" aria-hidden="true">↓</span></a>
+        <p class="muted">A glimpse of the future</p>
+      </div>
+    </div>
+
+    <!-- ============ LIBRARY ============ -->
+    <section class="library" id="models" aria-labelledby="models-title">
+      <div class="artboard section-inner">
+        <div class="section-head">
+          <div>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (COLLECTION)</p>
+            <h2 class="section-title" id="models-title">The whole library</h2>
+          </div>
+          <div class="segmented" role="group" aria-label="Filter by category" data-filters></div>
+        </div>
+        <div class="model-grid is-pre" data-model-grid data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta-panel">
+        <h2 class="cta-title" id="cta-title">A custom model<br>for your game?</h2>
+        <div class="cta-actions">
+          <a class="btn" href="pricing.html#quote">Build a quote <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#contact">Contact us <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ VIEWER ============ -->
+  <dialog class="viewer" data-viewer aria-labelledby="viewer-title">
+    <div class="viewer-stage">
+      <p class="viewer-hint">Drag to turn, scroll or pinch to zoom</p>
+    </div>
+    <div class="viewer-side">
+      <div class="viewer-top">
+        <div>
+          <h2 class="viewer-title" id="viewer-title" data-viewer-title>Model</h2>
+          <p class="viewer-cat" data-viewer-cat></p>
+        </div>
+        <button class="viewer-close" type="button" data-viewer-close aria-label="Close the viewer">×</button>
+      </div>
+      <dl class="viewer-stats">
+        <div><dt>Triangles</dt><dd data-stat="triangles">0</dd></div>
+        <div><dt>Vertices</dt><dd data-stat="vertices">0</dd></div>
+        <div><dt>Parts</dt><dd data-stat="parts">0</dd></div>
+      </dl>
+      <div>
+        <p class="viewer-label" id="finish-label">Finish</p>
+        <div class="segmented" role="group" aria-labelledby="finish-label" data-finishes>
+          <span class="nav-pill" aria-hidden="true"></span>
+          <button type="button" data-finish="chrome" aria-pressed="true">Chrome</button>
+          <button type="button" data-finish="rouge" aria-pressed="false">Red lacquer</button>
+          <button type="button" data-finish="bordeaux" aria-pressed="false">Burgundy</button>
+        </div>
+      </div>
+      <button class="viewer-toggle" type="button" data-autorotate aria-pressed="true">
+        <span class="switch" aria-hidden="true"></span> Auto-rotate
+      </button>
+      <div class="viewer-actions">
+        <button class="btn" type="button" data-add-quote>Add to my quote <span aria-hidden="true">+</span></button>
+        <p class="viewer-added" role="status" data-add-status data-quote-href="pricing.html#quote"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- partial:footer -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-line">
+      <span class="rule" aria-hidden="true"></span>
+      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="artboard footer-grid">
+      <div class="footer-brand">
+        <p class="footer-tagline">A glimpse of the future.</p>
+        <p class="footer-copy">Designs, 3D assets, game design and level design for your games, with follow-up during and after delivery.</p>
+        <div class="footer-actions">
+          <a class="btn" href="pricing.html#quote">Build a quote <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#">[email address] <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-labelledby="footer-nav-title">
+        <p class="label" id="footer-nav-title"><span class="dot" aria-hidden="true">●</span> (NAVIGATION)</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="library.html">3D library</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-studio-title">
+        <p class="label" id="footer-studio-title"><span class="dot" aria-hidden="true">●</span> (STUDIO)</p>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="pricing.html#plans">Plans</a></li>
+          <li><a href="pricing.html#quote">Your quote</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-legal-title">
+        <p class="label" id="footer-legal-title"><span class="dot" aria-hidden="true">●</span> (LEGAL)</p>
+        <ul>
+          <li><a href="legal-notice.html">Legal notice</a></li>
+          <li><a href="terms.html">Terms &amp; conditions</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="https://github.com/AnticOff/vizion" rel="noopener">Source code <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="artboard footer-bottom">
+      <p>© 2026 Vizion. All rights reserved.</p>
+      <p class="muted">Indicative prices, excluding VAT. No cookies on this site.</p>
+      <a class="footer-lang" href="fr/bibliotheque.html" hreflang="fr" lang="fr">Français</a>
+      <a class="footer-top" href="#">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+</body>
+</html>

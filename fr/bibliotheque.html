@@ -6,7 +6,12 @@
   <title>Bibliothèque 3D — Vizion</title>
   <meta name="description" content="La bibliothèque de modèles 3D de Vizion : pièces, reliques, armes et formes, à faire tourner dans le navigateur.">
   <meta name="theme-color" content="#3d0000">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/library.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/bibliotheque.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/library.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="../favicon.png" type="image/png">
   <script>
     document.documentElement.classList.add('js', 'is-loading');
     setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
@@ -14,25 +19,25 @@
   <script type="importmap">
     {
       "imports": {
-        "three": "./vendor/three/build/three.module.js",
-        "three/addons/": "./vendor/three/addons/"
+        "three": "../vendor/three/build/three.module.js",
+        "three/addons/": "../vendor/three/addons/"
       }
     }
   </script>
-  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/library.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/motion.css">
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/library.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/motion.css">
   <!-- library.js first: it renders the cards that main.js animates -->
-  <script type="module" src="js/pages/library.js"></script>
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="../js/pages/library.js"></script>
+  <script type="module" src="../js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -52,7 +57,8 @@
           <a href="index.html">Accueil</a>
           <a href="bibliotheque.html" aria-current="page">Bibliothèque</a>
           <a href="tarifs.html">Tarifs</a>
-          <a href="#contact">Contact</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="lang-switch" href="../library.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
         </nav>
         <!-- /partial:nav -->
         <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
@@ -110,7 +116,7 @@
       <div class="cta-panel">
         <h2 class="cta-title" id="cta-title">Un modèle sur mesure<br>pour votre jeu&#8239;?</h2>
         <div class="cta-actions">
-          <a class="btn" href="tarifs.html#devis">Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
           <a class="btn btn-ghost" href="#contact">Nous contacter <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -147,7 +153,10 @@
       <button class="viewer-toggle" type="button" data-autorotate aria-pressed="true">
         <span class="switch" aria-hidden="true"></span> Rotation automatique
       </button>
-      <a class="btn" href="tarifs.html#devis">Demander ce modèle <span class="arrow" aria-hidden="true">↗</span></a>
+      <div class="viewer-actions">
+        <button class="btn" type="button" data-add-quote>Ajouter à mon devis <span aria-hidden="true">+</span></button>
+        <p class="viewer-added" role="status" data-add-status data-quote-href="tarifs.html#devis"></p>
+      </div>
     </div>
   </dialog>
 
@@ -155,7 +164,7 @@
   <footer class="site-footer" id="contact">
     <div class="footer-line">
       <span class="rule" aria-hidden="true"></span>
-      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <img class="footer-mark" src="../assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
       <span class="rule" aria-hidden="true"></span>
     </div>
 
@@ -164,7 +173,7 @@
         <p class="footer-tagline">Un aperçu de l’avenir.</p>
         <p class="footer-copy">Designs, assets 3D, game design et level design pour vos jeux, avec un suivi pendant et après le rendu.</p>
         <div class="footer-actions">
-          <a class="btn" href="tarifs.html#devis">Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
           <a class="btn btn-ghost" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -184,7 +193,7 @@
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#projets">Projets</a></li>
           <li><a href="tarifs.html#formules">Formules</a></li>
-          <li><a href="tarifs.html#devis">Devis entreprises</a></li>
+          <li><a href="tarifs.html#devis">Votre devis</a></li>
         </ul>
       </nav>
 
@@ -202,6 +211,7 @@
     <div class="artboard footer-bottom">
       <p>© 2026 Vizion. Tous droits réservés.</p>
       <p class="muted">Tarifs indicatifs hors taxes. Aucun cookie sur ce site.</p>
+      <a class="footer-lang" href="../library.html" hreflang="en" lang="en">English</a>
       <a class="footer-top" href="#">Haut de page <span aria-hidden="true">↑</span></a>
     </div>
   </footer>

@@ -55,3 +55,5 @@
   .legal-body dl { grid-template-columns: 1fr; gap: calc(2 * var(--u)); }
   .legal-body dd { margin-bottom: calc(10 * var(--u)); }
 }
+
+.legal-body > .legal-note { margin: 0 0 calc(32 * var(--u)); }

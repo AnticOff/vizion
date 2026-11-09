@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pricing — Vizion</title>
+  <meta name="description" content="Vizion pricing: Indie and Studio plans, unit prices and a quote cart with custom pricing for large companies.">
+  <meta name="theme-color" content="#3d0000">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/pricing.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/tarifs.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/pricing.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  <script>
+    document.documentElement.classList.add('js', 'is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
+  </script>
+  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/pricing.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/motion.css">
+  <!-- pricing.js first: it renders the plans that main.js animates -->
+  <script type="module" src="js/pages/pricing.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ PAGE HERO ============ -->
+  <header class="hero page-hero">
+    <div class="artboard hero-board page-board">
+      <svg class="signature" viewBox="0 0 1440 640" preserveAspectRatio="none" aria-hidden="true" data-line>
+        <path d="M760 -10 V520 H1450" />
+      </svg>
+
+      <div class="hero-top">
+        <!-- partial:nav -->
+        <nav class="nav" data-nav aria-label="Main navigation">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="index.html">Home</a>
+          <a href="library.html">Library</a>
+          <a href="pricing.html" aria-current="page">Pricing</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="lang-switch" href="fr/tarifs.html" hreflang="fr" lang="fr" aria-label="Version française de cette page">FR</a>
+        </nav>
+        <!-- /partial:nav -->
+        <p class="meta" data-rise>Creative studio<br>Video games</p>
+        <a class="btn btn-contact" href="#contact" data-rise>
+          <span class="btn-label">Contact us</span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <h1 class="display display--xl">
+        <span class="line" data-title-line><span>Flexible</span></span>
+        <span class="line" data-title-line><span>pricing</span></span>
+      </h1>
+
+      <div class="page-intro">
+        <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (PRICING)</p>
+        <p class="about-copy" data-rise>Affordable, flexible prices,<br>from solo developers to large companies.</p>
+        <a class="btn btn-cta" href="#quote" data-rise>Build a quote <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="pill-stack">
+        <p class="glass-pill glass-light" data-rise><span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>Fast deliveries</p>
+        <p class="glass-pill glass-light" data-rise><span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>Affordable, flexible prices</p>
+        <p class="glass-pill glass-light" data-rise><span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>Follow-up during and after delivery</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ BAND ============ -->
+    <div class="band">
+      <div class="artboard band-row">
+        <p>Studio <span class="muted">Vizion</span></p>
+        <a class="band-scroll" href="#plans">Plans <span class="round-accent" aria-hidden="true">↓</span></a>
+        <p class="muted">A glimpse of the future</p>
+      </div>
+    </div>
+
+    <!-- ============ PLANS ============ -->
+    <section class="pricing-section" id="plans" aria-labelledby="plans-title">
+      <div class="artboard section-inner">
+        <div class="section-head">
+          <div>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (PLANS)</p>
+            <h2 class="section-title" id="plans-title">Three plans</h2>
+          </div>
+          <p class="section-copy">Indicative amounts excluding VAT, adjusted by quote to your project.</p>
+        </div>
+        <div class="plan-grid is-pre" data-plans data-stagger></div>
+      </div>
+    </section>
+
+    <!-- ============ UNIT PRICES ============ -->
+    <section class="pricing-section" id="units" aria-labelledby="units-title">
+      <div class="artboard section-inner">
+        <div class="section-head">
+          <div>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (PER UNIT)</p>
+            <h2 class="section-title" id="units-title">Price per service</h2>
+          </div>
+          <p class="section-copy">The base of every quote. Volume discounts apply automatically.</p>
+        </div>
+        <table class="price-table">
+          <thead><tr><th scope="col">Service</th><th scope="col">Unit</th><th scope="col">Price excl. VAT</th></tr></thead>
+          <tbody class="is-pre" data-price-rows data-stagger></tbody>
+        </table>
+        <p class="price-note">Indicative prices excluding VAT, confirmed by quote.</p>
+      </div>
+    </section>
+
+    <!-- ============ QUOTE CART ============ -->
+    <section class="pricing-section" id="quote" aria-labelledby="quote-title">
+      <div class="artboard section-inner">
+        <div class="section-head">
+          <div>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (YOUR QUOTE)</p>
+            <h2 class="section-title" id="quote-title">Build your quote</h2>
+          </div>
+          <p class="section-copy">Add services, tell us about your company, then send the request. The estimate updates as you go and your selection is kept in this browser.</p>
+        </div>
+
+        <form class="quote" data-quote novalidate>
+          <div class="quote-form">
+            <fieldset class="qf">
+              <legend><span class="step" aria-hidden="true">1</span> Choose your services</legend>
+              <div class="catalog" data-catalog></div>
+            </fieldset>
+
+            <fieldset class="qf">
+              <legend><span class="step" aria-hidden="true">2</span> Your project</legend>
+              <div class="qf-sub">
+                <span class="qf-label" id="size-label">Number of employees (usage licence)</span>
+                <div class="segmented" role="radiogroup" aria-labelledby="size-label" data-radios="size"></div>
+              </div>
+              <div class="qf-sub">
+                <span class="qf-label" id="deadline-label">Delivery deadline</span>
+                <div class="segmented" role="radiogroup" aria-labelledby="deadline-label" data-radios="deadline"></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="qf">
+              <legend><span class="step" aria-hidden="true">3</span> Your details</legend>
+              <div class="fields-2">
+                <div class="field">
+                  <label for="company">Company name</label>
+                  <input id="company" name="company" type="text" autocomplete="organization" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="message">Your project</label>
+                <textarea id="message" name="message" placeholder="Type of game, engine, schedule…"></textarea>
+              </div>
+            </fieldset>
+          </div>
+
+          <aside class="cart" id="cart" aria-labelledby="cart-title" data-cart>
+            <div class="cart-head">
+              <h3 class="cart-title" id="cart-title" tabindex="-1" data-cart-title>Your quote</h3>
+              <span class="cart-count" data-cart-count>0 services</span>
+            </div>
+            <div class="cart-empty" data-cart-empty>
+              <strong>Your quote is empty.</strong>
+              Add a service to see your estimate.
+            </div>
+            <ul class="cart-lines" data-cart-lines></ul>
+            <p class="visually-hidden" aria-live="polite" data-cart-live></p>
+            <div class="cart-refs" data-cart-refs hidden></div>
+            <p class="cart-hint" data-cart-hint hidden></p>
+            <dl class="sum-lines" data-cart-sum></dl>
+            <div>
+              <p class="sum-label">Estimate</p>
+              <p class="sum-total"><span data-sum="low">€0</span><span>– <span data-sum="high">€0</span> excl. VAT</span></p>
+            </div>
+            <p class="sum-note">Indicative price excluding VAT, confirmed by quote.</p>
+            <button class="btn" type="submit">Request this quote <span class="arrow" aria-hidden="true">↗</span></button>
+            <div class="cart-secondary">
+              <button type="button" data-copy>Copy summary</button>
+              <button type="button" data-clear>Clear quote</button>
+            </div>
+            <p class="quote-status" role="status" data-quote-status></p>
+          </aside>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-bar" data-cart-bar data-away="false" data-filled="false">
+    <span data-cart-bar-text></span>
+    <a href="#cart">See quote</a>
+  </div>
+
+  <!-- partial:footer -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-line">
+      <span class="rule" aria-hidden="true"></span>
+      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="artboard footer-grid">
+      <div class="footer-brand">
+        <p class="footer-tagline">A glimpse of the future.</p>
+        <p class="footer-copy">Designs, 3D assets, game design and level design for your games, with follow-up during and after delivery.</p>
+        <div class="footer-actions">
+          <a class="btn" href="pricing.html#quote">Build a quote <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#">[email address] <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-labelledby="footer-nav-title">
+        <p class="label" id="footer-nav-title"><span class="dot" aria-hidden="true">●</span> (NAVIGATION)</p>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="library.html">3D library</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-studio-title">
+        <p class="label" id="footer-studio-title"><span class="dot" aria-hidden="true">●</span> (STUDIO)</p>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="pricing.html#plans">Plans</a></li>
+          <li><a href="pricing.html#quote">Your quote</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-legal-title">
+        <p class="label" id="footer-legal-title"><span class="dot" aria-hidden="true">●</span> (LEGAL)</p>
+        <ul>
+          <li><a href="legal-notice.html">Legal notice</a></li>
+          <li><a href="terms.html">Terms &amp; conditions</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="https://github.com/AnticOff/vizion" rel="noopener">Source code <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="artboard footer-bottom">
+      <p>© 2026 Vizion. All rights reserved.</p>
+      <p class="muted">Indicative prices, excluding VAT. No cookies on this site.</p>
+      <a class="footer-lang" href="fr/tarifs.html" hreflang="fr" lang="fr">Français</a>
+      <a class="footer-top" href="#">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+</body>
+</html>

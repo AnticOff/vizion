@@ -1,6 +1,6 @@
 # Vizion
 
-Static site in six pages — plain HTML, CSS and ES modules. No framework, no build step, no npm dependency.
+Bilingual static site (English by default, French in `fr/`), six pages per language — plain HTML, CSS and ES modules. No framework, no build step, no npm dependency.
 The 3D library uses three.js r186, vendored in `vendor/three/` (MIT).
 
 ## Run
@@ -25,27 +25,30 @@ All paths are relative, so the site works under `https://<user>.github.io/<repo>
 
 - **Prices**: every amount in `js/data/pricing.js` is an example. Replace them, then update the expected values in
   `tools/test-estimate.mjs` and run `node tools/test-estimate.mjs`.
-- **Contact address**: set `CONTACT_EMAIL` in `js/data/pricing.js` (quote requests) and replace `[adresse e-mail]`
-  in `partials/footer.html`, then run `node tools/sync-partials.mjs`.
+- **Contact address**: set `CONTACT_EMAIL` in `js/data/pricing.js` (quote requests) and replace `[email address]` in
+  `partials/en/footer.html` and `[adresse e-mail]` in `partials/fr/footer.html`, then run `node tools/sync-partials.mjs`.
 - **Legal pages**: every `[bracketed]` value (company form, address, SIREN, VAT, publication director, payment terms,
   retention periods, court) must be filled in, and the texts should be reviewed by a legal professional.
 
 ## Pages
 
-| Page | Content |
-|---|---|
-| `index.html` | Hero with the logo, manifesto, services panel, projects, links to the other pages |
-| `bibliotheque.html` | 13 procedural 3D models: filters, grid rendered on one WebGL canvas, viewer dialog |
-| `tarifs.html` | Plans, unit prices, custom quote configurator (large companies), pre-filled e-mail |
-| `mentions-legales.html` | Legal notice: publisher, host, intellectual property, credits |
-| `conditions-generales.html` | Terms of use of the site and terms of sale of the services |
-| `confidentialite.html` | Privacy policy (GDPR), no cookies |
+| English (root) | French (`fr/`) | Content |
+|---|---|---|
+| `index.html` | `index.html` | Hero with the logo, manifesto, services panel, projects, links to the other pages |
+| `library.html` | `bibliotheque.html` | 13 procedural 3D models: filters, one WebGL canvas, viewer with “Add to my quote” |
+| `pricing.html` | `tarifs.html` | Plans, unit prices, quote cart (quantities, one-time options, company size, deadline), pre-filled email |
+| `legal-notice.html` | `mentions-legales.html` | Publisher, host, intellectual property, credits |
+| `terms.html` | `conditions-generales.html` | Terms of use of the site and terms of sale |
+| `privacy.html` | `confidentialite.html` | Privacy policy (GDPR), no cookies, local storage for the cart |
+
+The language switch (EN / FR) sits at the end of the nav and in the footer; it links to the same page in the other
+language. Pairs are declared in `PAGES` in `tools/sync-partials.mjs`, which also writes the `hreflang` links.
 
 ## Structure
 
 ```
-index.html, bibliotheque.html, tarifs.html, mentions-legales.html, conditions-generales.html, confidentialite.html
-partials/             nav.html, footer.html — the single source of the shared header nav and footer
+*.html                English pages        fr/*.html  French pages
+partials/en|fr/       nav.html, footer.html — the single source of the shared nav and footer, per language
 css/
   fonts.css           @font-face (self-hosted, latin subset)
   tokens.css          unit u, palette (one red hue), fonts, easing — the only place for colours
@@ -60,14 +63,16 @@ css/
   motion.css          initial states for the intro, reveals and staggers
 js/
   main.js             shared entry: intro, scroll, staggers, recorder, reduced motion (every page)
+  i18n.js             LANG from <html lang>, t({ en, fr })
+  quote-store.js      the quote cart in localStorage (shared by the library and the pricing page)
   motion/             env, intro, counters, word-fill, nav-pill (sliding pill), reveal, stagger
   pages/library.js    library cards + filters; loads the 3D lazily
-  pages/pricing.js    plans, table, configurator UI
+  pages/pricing.js    plans, table, quote cart UI
   pages/legal.js      highlights the current section in the legal table of contents
   three/              build-models (procedural models), materials, library-scene (renderers, viewer)
   pricing/estimate.js quote maths (no DOM, tested by tools/test-estimate.mjs)
   data/models.js      library catalogue
-  data/pricing.js     prices and options (EXAMPLES)
+  data/pricing.js     prices, quantity and one-time services, options (EXAMPLES) — texts are { en, fr }
 vendor/three/         three.js r186 build + OrbitControls + RoomEnvironment
 tools/serve.mjs       dev server        tools/test-estimate.mjs  quote tests
 tools/sync-partials.mjs  copies partials/ into every page (--check in CI)
@@ -77,8 +82,13 @@ assets/fonts, assets/img
 ## Conventions
 
 - Every layout size is `calc(N * var(--u))`, N measured on a 1440 artboard (`--u` = 100vw / 390 on phones).
-- The nav and the footer live in `partials/`. Pages hold `<!-- partial:nav -->` / `<!-- partial:footer -->` markers;
-  edit the partial, then run `node tools/sync-partials.mjs` (it also sets `aria-current` on the nav). CI fails if a page is stale.
+- The nav and the footer live in `partials/<lang>/`. Pages hold `<!-- partial:alternates -->`, `<!-- partial:nav -->` and
+  `<!-- partial:footer -->` markers; edit a partial, then run `node tools/sync-partials.mjs` (it fills `{{root}}` and
+  `{{switch}}`, sets `aria-current` and the `hreflang` links). CI fails if a page is stale or has no translation.
+- French pages in `fr/` reference shared files with `../`. A new page needs both languages and an entry in `PAGES`.
+- Translatable data is `{ en, fr }`; scripts read the page language from `<html lang>` (`js/i18n.js`).
+- Quote cart: a service of type `qty` is sold by quantity (stepper), a service of type `once` is a checkbox
+  (flat `price` or `rate` of the total). The cart is stored in `localStorage` (no personal data).
 - Motion is attached with `data-*` attributes: `data-title-line`, `data-hero-photo`, `data-drift`, `data-nav`,
   `data-rise`, `data-draw`, `data-line` (SVG signature), `data-count` (+ `data-suffix`, `data-count-on="load|reveal"`),
   `data-fill`, `data-trust`, `data-avatar`, `data-awards`, `data-stagger` (with class `is-pre`).

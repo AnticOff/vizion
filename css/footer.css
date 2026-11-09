@@ -32,14 +32,15 @@
 .footer-col a:hover { color: var(--accent); background-size: 100% 1px; }
 
 .footer-bottom {
-  display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: calc(24 * var(--u));
+  display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: calc(24 * var(--u));
   margin-top: calc(56 * var(--u));
   padding: calc(20 * var(--u)) calc(69 * var(--u)) 0;
   border-top: 1px solid var(--hair);
   font-size: calc(13 * var(--u));
 }
 .footer-top { display: inline-flex; gap: calc(8 * var(--u)); align-items: center; transition: color .25s; }
-.footer-top:hover { color: var(--accent); }
+.footer-top:hover, .footer-lang:hover { color: var(--accent); }
+.footer-lang { text-decoration: underline; text-underline-offset: .2em; transition: color .25s; }
 
 @media (max-width: 760px) {
   .footer-mark { width: calc(200 * var(--u)); }

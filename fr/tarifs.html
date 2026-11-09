@@ -4,27 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tarifs — Vizion</title>
-  <meta name="description" content="Tarifs de Vizion : formules Indé et Studio, prix à l’unité et devis personnalisé pour les grandes entreprises.">
+  <meta name="description" content="Tarifs de Vizion : formules Indé et Studio, prix à l’unité et panier de devis avec tarif personnalisé pour les grandes entreprises.">
   <meta name="theme-color" content="#3d0000">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/pricing.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/tarifs.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/pricing.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="../favicon.png" type="image/png">
   <script>
     document.documentElement.classList.add('js', 'is-loading');
     setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
   </script>
-  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/pricing.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/motion.css">
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/pricing.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/motion.css">
   <!-- pricing.js first: it renders the plans that main.js animates -->
-  <script type="module" src="js/pages/pricing.js"></script>
-  <script type="module" src="js/main.js"></script>
+  <script type="module" src="../js/pages/pricing.js"></script>
+  <script type="module" src="../js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -43,7 +48,8 @@
           <a href="index.html">Accueil</a>
           <a href="bibliotheque.html">Bibliothèque</a>
           <a href="tarifs.html" aria-current="page">Tarifs</a>
-          <a href="#contact">Contact</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="lang-switch" href="../pricing.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
         </nav>
         <!-- /partial:nav -->
         <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
@@ -60,7 +66,7 @@
       <div class="page-intro">
         <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (TARIFS)</p>
         <p class="about-copy" data-rise>Des tarifs accessibles et flexibles,<br>du développeur solo à la grande entreprise.</p>
-        <a class="btn btn-cta" href="#devis" data-rise>Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn-cta" href="#devis" data-rise>Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
 
       <div class="pill-stack">
@@ -113,64 +119,51 @@
       </div>
     </section>
 
-    <!-- ============ QUOTE CONFIGURATOR ============ -->
+    <!-- ============ QUOTE CART ============ -->
     <section class="pricing-section" id="devis" aria-labelledby="devis-title">
       <div class="artboard section-inner">
         <div class="section-head">
           <div>
-            <p class="label"><span class="dot" aria-hidden="true">●</span> (GRANDES ENTREPRISES)</p>
-            <h2 class="section-title" id="devis-title">Votre tarif sur mesure</h2>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (VOTRE DEVIS)</p>
+            <h2 class="section-title" id="devis-title">Composez votre devis</h2>
           </div>
-          <p class="section-copy">Choisissez vos volumes, la taille de votre entreprise et vos délais&#8239;: l’estimation se met à jour, puis envoyez la demande.</p>
+          <p class="section-copy">Ajoutez vos prestations, présentez votre entreprise, puis envoyez la demande. L’estimation se met à jour au fil de vos choix, qui restent enregistrés dans ce navigateur.</p>
         </div>
 
         <form class="quote" data-quote novalidate>
           <div class="quote-form">
             <fieldset class="qf">
-              <legend>Votre entreprise</legend>
-              <div class="field">
-                <label for="company">Nom de l’entreprise</label>
-                <input id="company" name="company" type="text" autocomplete="organization" required>
-              </div>
+              <legend><span class="step" aria-hidden="true">1</span> Choisissez vos prestations</legend>
+              <div class="catalog" data-catalog></div>
+            </fieldset>
+
+            <fieldset class="qf">
+              <legend><span class="step" aria-hidden="true">2</span> Votre projet</legend>
               <div class="qf-sub">
                 <span class="qf-label" id="size-label">Nombre de salariés (licence d’exploitation)</span>
                 <div class="segmented" role="radiogroup" aria-labelledby="size-label" data-radios="size"></div>
               </div>
-            </fieldset>
-
-            <fieldset class="qf">
-              <legend>Prestations</legend>
-              <div data-services></div>
-              <div class="qf-sub">
-                <span class="qf-label" id="complexity-label">Complexité des assets 3D</span>
-                <div class="segmented" role="radiogroup" aria-labelledby="complexity-label" data-radios="complexity"></div>
-              </div>
-            </fieldset>
-
-            <fieldset class="qf">
-              <legend>Délais et options</legend>
               <div class="qf-sub">
                 <span class="qf-label" id="deadline-label">Délai de livraison</span>
                 <div class="segmented" role="radiogroup" aria-labelledby="deadline-label" data-radios="deadline"></div>
               </div>
-              <label class="check-row"><input type="checkbox" name="team"> Équipe dédiée <small data-team-rate></small></label>
-              <div class="field">
-                <label for="support">Suivi prolongé après le rendu</label>
-                <select id="support" name="support" data-support></select>
-              </div>
             </fieldset>
 
             <fieldset class="qf">
-              <legend>Vos coordonnées</legend>
+              <legend><span class="step" aria-hidden="true">3</span> Vos coordonnées</legend>
               <div class="fields-2">
                 <div class="field">
-                  <label for="name">Nom</label>
-                  <input id="name" name="name" type="text" autocomplete="name">
+                  <label for="company">Nom de l’entreprise</label>
+                  <input id="company" name="company" type="text" autocomplete="organization" required>
                 </div>
                 <div class="field">
                   <label for="email">E-mail</label>
                   <input id="email" name="email" type="email" autocomplete="email" required>
                 </div>
+              </div>
+              <div class="field">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" autocomplete="name">
               </div>
               <div class="field">
                 <label for="message">Votre projet</label>
@@ -179,13 +172,30 @@
             </fieldset>
           </div>
 
-          <aside class="quote-summary" aria-labelledby="sum-title">
-            <p class="sum-label" id="sum-title">Estimation</p>
-            <p class="sum-total" aria-live="polite"><span data-sum="low">0 €</span><span>– <span data-sum="high">0 €</span> HT</span></p>
-            <dl class="sum-lines" data-sum="lines"></dl>
+          <aside class="cart" id="panier" aria-labelledby="cart-title" data-cart>
+            <div class="cart-head">
+              <h3 class="cart-title" id="cart-title" tabindex="-1" data-cart-title>Votre devis</h3>
+              <span class="cart-count" data-cart-count>0 prestation</span>
+            </div>
+            <div class="cart-empty" data-cart-empty>
+              <strong>Votre devis est vide.</strong>
+              Ajoutez une prestation pour voir l’estimation.
+            </div>
+            <ul class="cart-lines" data-cart-lines></ul>
+            <p class="visually-hidden" aria-live="polite" data-cart-live></p>
+            <div class="cart-refs" data-cart-refs hidden></div>
+            <p class="cart-hint" data-cart-hint hidden></p>
+            <dl class="sum-lines" data-cart-sum></dl>
+            <div>
+              <p class="sum-label">Estimation</p>
+              <p class="sum-total"><span data-sum="low">0 €</span><span>– <span data-sum="high">0 €</span> HT</span></p>
+            </div>
             <p class="sum-note">Tarif indicatif hors taxes, confirmé sur devis.</p>
             <button class="btn" type="submit">Envoyer la demande <span class="arrow" aria-hidden="true">↗</span></button>
-            <button class="btn btn-line" type="button" data-copy>Copier le récapitulatif</button>
+            <div class="cart-secondary">
+              <button type="button" data-copy>Copier le récapitulatif</button>
+              <button type="button" data-clear>Vider le devis</button>
+            </div>
             <p class="quote-status" role="status" data-quote-status></p>
           </aside>
         </form>
@@ -193,11 +203,16 @@
     </section>
   </main>
 
+  <div class="cart-bar" data-cart-bar data-away="false" data-filled="false">
+    <span data-cart-bar-text></span>
+    <a href="#panier">Voir le devis</a>
+  </div>
+
   <!-- partial:footer -->
   <footer class="site-footer" id="contact">
     <div class="footer-line">
       <span class="rule" aria-hidden="true"></span>
-      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <img class="footer-mark" src="../assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
       <span class="rule" aria-hidden="true"></span>
     </div>
 
@@ -206,7 +221,7 @@
         <p class="footer-tagline">Un aperçu de l’avenir.</p>
         <p class="footer-copy">Designs, assets 3D, game design et level design pour vos jeux, avec un suivi pendant et après le rendu.</p>
         <div class="footer-actions">
-          <a class="btn" href="tarifs.html#devis">Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
           <a class="btn btn-ghost" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -226,7 +241,7 @@
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#projets">Projets</a></li>
           <li><a href="tarifs.html#formules">Formules</a></li>
-          <li><a href="tarifs.html#devis">Devis entreprises</a></li>
+          <li><a href="tarifs.html#devis">Votre devis</a></li>
         </ul>
       </nav>
 
@@ -244,6 +259,7 @@
     <div class="artboard footer-bottom">
       <p>© 2026 Vizion. Tous droits réservés.</p>
       <p class="muted">Tarifs indicatifs hors taxes. Aucun cookie sur ce site.</p>
+      <a class="footer-lang" href="../pricing.html" hreflang="en" lang="en">English</a>
       <a class="footer-top" href="#">Haut de page <span aria-hidden="true">↑</span></a>
     </div>
   </footer>

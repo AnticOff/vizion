@@ -35,4 +35,5 @@ export function initSlidingPill(root, { items = 'a, button' } = {}) {
   };
 }
 
-export const initNavPill = (nav) => initSlidingPill(nav);
+// the language switch sits in the nav but is not a page: the pill never goes under it
+export const initNavPill = (nav) => initSlidingPill(nav, { items: 'a:not(.lang-switch)' });

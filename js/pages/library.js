@@ -5,6 +5,9 @@ import { REDUCED, $, $$ } from '../motion/env.js';
 import { initSlidingPill } from '../motion/nav-pill.js';
 import { replay } from '../motion/stagger.js';
 import { MODELS, CATEGORIES } from '../data/models.js';
+import { LANG, t } from '../i18n.js';
+
+const S = { en: { all: 'All' }, fr: { all: 'Tous' } }[LANG];
 
 const grid = $('[data-model-grid]');
 const filters = $('[data-filters]');
@@ -14,8 +17,8 @@ grid.innerHTML = MODELS.map((m) => `
   <button class="model-card" type="button" data-model="${m.id}" data-category="${m.category}" aria-haspopup="dialog">
     <span class="model-stage" data-view="${m.id}" data-finish="${m.material}"></span>
     <span class="model-meta">
-      <span class="model-name">${m.name}</span>
-      <span class="model-sub">${CATEGORIES[m.category]}</span>
+      <span class="model-name">${t(m.name)}</span>
+      <span class="model-sub">${t(CATEGORIES[m.category])}</span>
       <span class="model-sub" data-tris="${m.id}">&nbsp;</span>
       <span class="model-open" aria-hidden="true">↗</span>
     </span>
@@ -30,9 +33,9 @@ $$('[data-model-count]').forEach((el) => {
 // ---------- filters ----------
 const counts = MODELS.reduce((acc, m) => ({ ...acc, [m.category]: (acc[m.category] || 0) + 1 }), {});
 filters.innerHTML = `<span class="nav-pill" aria-hidden="true"></span>
-  <button type="button" data-filter="all" aria-pressed="true">Tous<span class="count" aria-hidden="true">${MODELS.length}</span></button>
+  <button type="button" data-filter="all" aria-pressed="true">${S.all}<span class="count" aria-hidden="true">${MODELS.length}</span></button>
   ${Object.entries(CATEGORIES).map(([id, label]) =>
-    `<button type="button" data-filter="${id}" aria-pressed="false">${label}<span class="count" aria-hidden="true">${counts[id] || 0}</span></button>`).join('')}`;
+    `<button type="button" data-filter="${id}" aria-pressed="false">${t(label)}<span class="count" aria-hidden="true">${counts[id] || 0}</span></button>`).join('')}`;
 
 const pill = initSlidingPill(filters, { items: 'button' });
 $$('button[data-filter]', filters).forEach((btn) => btn.addEventListener('click', () => {

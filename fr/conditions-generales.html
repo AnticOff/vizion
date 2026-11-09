@@ -6,24 +6,29 @@
   <title>Conditions générales — Vizion</title>
   <meta name="description" content="Conditions générales d’utilisation du site et conditions générales de vente des prestations de Vizion.">
   <meta name="theme-color" content="#3d0000">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/terms.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/conditions-generales.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/terms.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="../favicon.png" type="image/png">
   <script>
     document.documentElement.classList.add('js', 'is-loading');
     setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
   </script>
-  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/legal.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/motion.css">
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/pages/legal.js"></script>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/legal.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/motion.css">
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/pages/legal.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -40,7 +45,8 @@
           <a href="index.html">Accueil</a>
           <a href="bibliotheque.html">Bibliothèque</a>
           <a href="tarifs.html">Tarifs</a>
-          <a href="#contact">Contact</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="lang-switch" href="../terms.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
         </nav>
         <!-- /partial:nav -->
         <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
@@ -83,7 +89,7 @@
           <h2 id="utilisation-title">Utilisation du site</h2>
           <p>Le site présente le studio Vizion, ses prestations, sa bibliothèque de modèles 3D et ses tarifs. Il est accessible librement et gratuitement. En le consultant, vous acceptez les présentes conditions.</p>
           <ul>
-            <li>Les tarifs affichés et les estimations du configurateur sont indicatifs, exprimés hors taxes, et ne constituent pas une offre ferme. Seul un devis accepté engage les parties.</li>
+            <li>Les tarifs affichés et les estimations du panier de devis sont indicatifs, exprimés hors taxes, et ne constituent pas une offre ferme. Seul un devis accepté engage les parties.</li>
             <li>Les modèles de la bibliothèque 3D sont des aperçus. Leur consultation ne donne aucun droit de téléchargement ni d’exploitation.</li>
             <li>Les contenus du site sont protégés&#8239;: voir les <a href="mentions-legales.html">mentions légales</a>.</li>
             <li>Vizion s’efforce de garder le site disponible et exact, sans pouvoir le garantir en permanence.</li>
@@ -158,7 +164,7 @@
   <footer class="site-footer" id="contact">
     <div class="footer-line">
       <span class="rule" aria-hidden="true"></span>
-      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <img class="footer-mark" src="../assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
       <span class="rule" aria-hidden="true"></span>
     </div>
 
@@ -167,7 +173,7 @@
         <p class="footer-tagline">Un aperçu de l’avenir.</p>
         <p class="footer-copy">Designs, assets 3D, game design et level design pour vos jeux, avec un suivi pendant et après le rendu.</p>
         <div class="footer-actions">
-          <a class="btn" href="tarifs.html#devis">Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
           <a class="btn btn-ghost" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -187,7 +193,7 @@
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#projets">Projets</a></li>
           <li><a href="tarifs.html#formules">Formules</a></li>
-          <li><a href="tarifs.html#devis">Devis entreprises</a></li>
+          <li><a href="tarifs.html#devis">Votre devis</a></li>
         </ul>
       </nav>
 
@@ -205,6 +211,7 @@
     <div class="artboard footer-bottom">
       <p>© 2026 Vizion. Tous droits réservés.</p>
       <p class="muted">Tarifs indicatifs hors taxes. Aucun cookie sur ce site.</p>
+      <a class="footer-lang" href="../terms.html" hreflang="en" lang="en">English</a>
       <a class="footer-top" href="#">Haut de page <span aria-hidden="true">↑</span></a>
     </div>
   </footer>

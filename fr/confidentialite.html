@@ -6,24 +6,29 @@
   <title>Politique de confidentialité — Vizion</title>
   <meta name="description" content="Politique de confidentialité de Vizion : données traitées, finalités, durées de conservation, cookies et droits RGPD.">
   <meta name="theme-color" content="#3d0000">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/privacy.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/confidentialite.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/privacy.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="../favicon.png" type="image/png">
   <script>
     document.documentElement.classList.add('js', 'is-loading');
     setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
   </script>
-  <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/legal.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/motion.css">
-  <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/pages/legal.js"></script>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/legal.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/motion.css">
+  <script type="module" src="../js/main.js"></script>
+  <script type="module" src="../js/pages/legal.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -40,7 +45,8 @@
           <a href="index.html">Accueil</a>
           <a href="bibliotheque.html">Bibliothèque</a>
           <a href="tarifs.html">Tarifs</a>
-          <a href="#contact">Contact</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="lang-switch" href="../privacy.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
         </nav>
         <!-- /partial:nav -->
         <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
@@ -82,7 +88,7 @@
           <h2 id="essentiel-title">L’essentiel</h2>
           <ul>
             <li>Le site n’a ni compte, ni inscription, ni formulaire envoyé à un serveur.</li>
-            <li>Le configurateur de devis calcule l’estimation dans votre navigateur. Rien n’est transmis tant que vous n’envoyez pas vous-même l’e-mail préparé depuis votre messagerie.</li>
+            <li>Le panier de devis calcule l’estimation dans votre navigateur et y garde vos choix de prestations. Rien n’est transmis tant que vous n’envoyez pas vous-même l’e-mail préparé depuis votre messagerie.</li>
             <li>Aucun cookie, aucune mesure d’audience, aucune publicité. Polices et bibliothèques sont hébergées sur le site même.</li>
             <li>Vos données ne sont jamais vendues.</li>
           </ul>
@@ -97,8 +103,8 @@
           <h2 id="donnees-title">Données traitées</h2>
           <h3>Quand vous nous écrivez</h3>
           <p>Si vous envoyez une demande de devis ou un e-mail, nous recevons ce que contient votre message&#8239;: votre nom, votre adresse e-mail, le nom de votre entreprise, sa taille, les prestations et quantités choisies, et votre message.</p>
-          <h3>Quand vous utilisez le configurateur</h3>
-          <p>Les valeurs saisies restent dans votre navigateur et disparaissent quand vous quittez la page. Elles ne nous parviennent que si vous envoyez l’e-mail pré-rempli.</p>
+          <h3>Quand vous utilisez le panier de devis</h3>
+          <p>Vos choix (prestations, quantités, options, modèles ajoutés depuis la bibliothèque) sont enregistrés dans le stockage local de votre navigateur pour les retrouver d’une page à l’autre. Ils ne contiennent aucune donnée personnelle, ne quittent pas votre appareil et sont effacés par le bouton «&#8239;Vider le devis&#8239;». Les coordonnées que vous saisissez (nom, e-mail, entreprise, message) ne sont pas enregistrées et disparaissent quand vous quittez la page. Rien ne nous parvient tant que vous n’envoyez pas l’e-mail pré-rempli.</p>
           <h3>Quand vous devenez client</h3>
           <p>Coordonnées de facturation, échanges sur le projet, devis, factures et documents de livraison.</p>
         </section>
@@ -134,7 +140,7 @@
 
         <section id="cookies" aria-labelledby="cookies-title">
           <h2 id="cookies-title">Cookies et traceurs</h2>
-          <p>Ce site ne dépose aucun cookie et n’utilise aucun traceur&#8239;: pas de mesure d’audience, pas de publicité, pas de bouton de réseau social. C’est pourquoi aucun bandeau de consentement ne vous est présenté.</p>
+          <p>Ce site ne dépose aucun cookie et n’utilise aucun traceur&#8239;: pas de mesure d’audience, pas de publicité, pas de bouton de réseau social. Seul le stockage local du navigateur garde le contenu de votre panier de devis&#8239;; il sert uniquement à cette fonction, que vous utilisez, ce qui le dispense de consentement. C’est pourquoi aucun bandeau ne vous est présenté.</p>
         </section>
 
         <section id="droits" aria-labelledby="droits-title">
@@ -155,7 +161,7 @@
   <footer class="site-footer" id="contact">
     <div class="footer-line">
       <span class="rule" aria-hidden="true"></span>
-      <img class="footer-mark" src="assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <img class="footer-mark" src="../assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
       <span class="rule" aria-hidden="true"></span>
     </div>
 
@@ -164,7 +170,7 @@
         <p class="footer-tagline">Un aperçu de l’avenir.</p>
         <p class="footer-copy">Designs, assets 3D, game design et level design pour vos jeux, avec un suivi pendant et après le rendu.</p>
         <div class="footer-actions">
-          <a class="btn" href="tarifs.html#devis">Configurer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
           <a class="btn btn-ghost" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -184,7 +190,7 @@
           <li><a href="index.html#services">Services</a></li>
           <li><a href="index.html#projets">Projets</a></li>
           <li><a href="tarifs.html#formules">Formules</a></li>
-          <li><a href="tarifs.html#devis">Devis entreprises</a></li>
+          <li><a href="tarifs.html#devis">Votre devis</a></li>
         </ul>
       </nav>
 
@@ -202,6 +208,7 @@
     <div class="artboard footer-bottom">
       <p>© 2026 Vizion. Tous droits réservés.</p>
       <p class="muted">Tarifs indicatifs hors taxes. Aucun cookie sur ce site.</p>
+      <a class="footer-lang" href="../privacy.html" hreflang="en" lang="en">English</a>
       <a class="footer-top" href="#">Haut de page <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
