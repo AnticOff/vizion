@@ -1,4 +1,5 @@
-# Tests the quote maths, then publishes the static site to GitHub Pages on every push to main.
+# Tests the quote maths and the shared partials, then publishes the static site to GitHub Pages
+# on every push to main.
 name: Pages
 
 on:
@@ -25,6 +26,8 @@ jobs:
           node-version: 24
           package-manager-cache: false # no dependencies, no lock file
       - run: node tools/test-estimate.mjs
+      - name: Shared nav and footer are in sync
+        run: node tools/sync-partials.mjs --check
 
   build:
     needs: test
@@ -35,7 +38,7 @@ jobs:
       - name: Collect the site files
         run: |
           mkdir _site
-          cp -r index.html bibliotheque.html tarifs.html favicon.png css js assets vendor _site/
+          cp -r *.html favicon.png css js assets vendor _site/
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site

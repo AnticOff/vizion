@@ -8,12 +8,15 @@ export function initSlidingPill(root, { items = 'a, button' } = {}) {
   const pill = $('.nav-pill', root);
   const links = $$(items, root);
   if (!pill || !links.length) return null;
-  let active = $('[aria-current="page"], [aria-pressed="true"]', root) || links[0];
+  // no active item (e.g. a page that is not in the nav): the pill stays hidden until hover
+  let active = $('[aria-current="page"], [aria-pressed="true"]', root);
 
   const moveTo = (link) => {
+    pill.style.opacity = link ? '1' : '0';
+    links.forEach((l) => l.classList.toggle('is-on', l === link));
+    if (!link) return;
     pill.style.width = `${link.offsetWidth}px`;
     pill.style.transform = `translateX(${link.offsetLeft}px)`;
-    links.forEach((l) => l.classList.toggle('is-on', l === link));
   };
 
   links.forEach((link) => {

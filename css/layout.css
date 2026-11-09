@@ -83,17 +83,6 @@
   margin-top: calc(40 * var(--u));
 }
 
-/* ---------- footer ---------- */
-.site-footer { background: var(--deep); padding-bottom: calc(48 * var(--u)); }
-.footer-line { display: flex; align-items: center; }
-.footer-line .rule { flex: 1; }
-.footer-row {
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
-  margin-top: calc(48 * var(--u));
-  padding-inline: calc(57 * var(--u));
-}
-.footer-row > :last-child { justify-self: end; }
-
 /* ---------- phone ---------- */
 @media (max-width: 760px) {
   .artboard { width: auto; }
@@ -132,7 +121,4 @@
   .projects { padding-bottom: calc(96 * var(--u)); }
   .projects-inner { padding-inline: calc(16 * var(--u)); }
   .project-grid { grid-template-columns: 1fr; }
-
-  .footer-row { grid-template-columns: 1fr; justify-items: start; gap: calc(16 * var(--u)); padding-inline: calc(16 * var(--u)); }
-  .footer-row > :last-child { justify-self: start; }
 }

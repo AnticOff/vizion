@@ -1,0 +1,50 @@
+/* Site footer, shared by every page (markup in partials/footer.html). */
+
+.site-footer { background: var(--deep); padding-bottom: calc(40 * var(--u)); }
+
+/* the logo's red line crossing the page, wordmark in the middle */
+.footer-line { display: flex; align-items: center; }
+.footer-line .rule { flex: 1; height: calc(4 * var(--u)); background: var(--accent); }
+.footer-mark { width: calc(300 * var(--u)); height: auto; flex: none; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: calc(40 * var(--u));
+  margin-top: calc(64 * var(--u));
+  padding-inline: calc(69 * var(--u)); /* aligns with the 1302 panels */
+}
+.footer-tagline {
+  font-family: var(--font-display);
+  font-weight: 640; font-stretch: 104%;
+  font-size: calc(34 * var(--u)); line-height: .95; letter-spacing: -.03em;
+  text-transform: uppercase; color: var(--accent);
+}
+.footer-copy { max-width: calc(380 * var(--u)); margin-top: calc(16 * var(--u)); font-size: calc(14 * var(--u)); line-height: 1.5; color: var(--muted); }
+.footer-actions { display: flex; flex-wrap: wrap; gap: calc(10 * var(--u)); margin-top: calc(24 * var(--u)); }
+
+.footer-col ul { display: grid; gap: calc(10 * var(--u)); margin-top: calc(16 * var(--u)); }
+.footer-col a {
+  font-size: calc(15 * var(--u));
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: color .25s, background-size .35s var(--ease);
+}
+.footer-col a:hover { color: var(--accent); background-size: 100% 1px; }
+
+.footer-bottom {
+  display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: calc(24 * var(--u));
+  margin-top: calc(56 * var(--u));
+  padding: calc(20 * var(--u)) calc(69 * var(--u)) 0;
+  border-top: 1px solid var(--hair);
+  font-size: calc(13 * var(--u));
+}
+.footer-top { display: inline-flex; gap: calc(8 * var(--u)); align-items: center; transition: color .25s; }
+.footer-top:hover { color: var(--accent); }
+
+@media (max-width: 760px) {
+  .footer-mark { width: calc(200 * var(--u)); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: calc(32 * var(--u)) calc(16 * var(--u)); margin-top: calc(40 * var(--u)); padding-inline: calc(16 * var(--u)); }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-tagline { font-size: calc(28 * var(--u)); }
+  .footer-bottom { grid-template-columns: 1fr; gap: calc(8 * var(--u)); padding-inline: calc(16 * var(--u)); }
+}

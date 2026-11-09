@@ -1,7 +1,7 @@
 {
   "name": "vizion-site",
   "private": true,
-  "description": "Vizion — Un aperçu de l’avenir. Static site: home, 3D library, pricing.",
+  "description": "Vizion — Un aperçu de l’avenir. Static site: home, 3D library, pricing, legal pages.",
   "type": "module",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "node tools/serve.mjs",
-    "test": "node tools/test-estimate.mjs"
+    "test": "node tools/test-estimate.mjs && node tools/sync-partials.mjs --check",
+    "sync": "node tools/sync-partials.mjs"
   }
 }

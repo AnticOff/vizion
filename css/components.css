@@ -34,7 +34,7 @@
   width: 0;
   background: var(--accent);
   border-radius: 999px;
-  transition: transform .45s var(--ease), width .45s var(--ease);
+  transition: transform .45s var(--ease), width .45s var(--ease), opacity .3s;
 }
 
 /* ---------- meta, labels ---------- */
@@ -266,10 +266,6 @@
 .project:hover img { transform: translateY(calc(-6 * var(--u))); }
 .project-name { margin-top: calc(14 * var(--u)); font-size: calc(15 * var(--u)); }
 
-/* ---------- footer ---------- */
-.footer-line .rule { height: calc(4 * var(--u)); background: var(--accent); }
-.footer-mark { width: calc(300 * var(--u)); height: auto; flex: none; }
-
 @media (max-width: 760px) {
   .display { font-size: calc(48 * var(--u)); }
   .nav a { padding-inline: calc(12 * var(--u)); font-size: calc(13 * var(--u)); }
@@ -285,5 +281,4 @@
   .card-red, .card-dark, .card-portrait { width: auto; }
   .card-portrait { height: calc(200 * var(--u)); }
   .projects-title { font-size: calc(40 * var(--u)); }
-  .footer-mark { width: calc(200 * var(--u)); }
 }
