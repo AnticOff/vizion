@@ -179,23 +179,6 @@
 .progress { display: block; height: 2px; margin-top: calc(14 * var(--u)); background: var(--track); }
 .progress-fill { display: block; width: 40%; height: 100%; background: var(--accent); transform-origin: left; }
 
-/* ---------- band ---------- */
-.band-row {
-  font-family: var(--font-display);
-  font-stretch: 125%;
-  font-size: calc(14 * var(--u));
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  color: var(--text);
-}
-.band-scroll { display: inline-flex; align-items: center; gap: calc(12 * var(--u)); }
-.round-accent {
-  display: grid; place-items: center;
-  width: calc(34 * var(--u)); height: calc(34 * var(--u));
-  border-radius: 50%; background: var(--accent); color: var(--deep);
-  font-family: var(--font-ui); font-stretch: 100%;
-}
-
 /* ---------- statement ---------- */
 .statement {
   width: calc(900 * var(--u));
