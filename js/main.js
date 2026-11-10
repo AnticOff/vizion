@@ -10,6 +10,7 @@ import { initNavPill } from './motion/nav-pill.js';
 import { playIntro } from './motion/intro.js';
 import { createReveal } from './motion/reveal.js';
 import { initStagger } from './motion/stagger.js';
+import { initScrollLine } from './motion/scroll-line.js';
 
 const DRIFT_RATE = 0.12;     // logo drift, x scroll
 const REC_DRIFT_PX_S = 6;    // logo drift in ?rec=1, px per second
@@ -24,6 +25,7 @@ const reveal = createReveal(panel, { reduced: REDUCED });
 initNavPill($('[data-nav]'));
 playIntro({ reduced: REDUCED });
 initStagger({ reduced: REDUCED, immediate: REC });
+initScrollLine({ reduced: REDUCED, rec: REC }); // home page only (needs [data-scroll-line])
 
 if (REDUCED) {
   fill?.paint(1);
