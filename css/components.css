@@ -271,16 +271,20 @@
   text-transform: uppercase; color: var(--accent);
 }
 .project img {
-  width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover;
+  width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover;
   border-radius: calc(8 * var(--u));
   transition: transform .35s var(--ease);
 }
 .project:hover img { transform: translateY(calc(-6 * var(--u))); }
 .project-name { margin-top: calc(14 * var(--u)); font-size: calc(15 * var(--u)); }
+.project-roles { margin-top: calc(4 * var(--u)); font-size: calc(13 * var(--u)); color: var(--muted); }
+.project a:hover .project-name { color: var(--accent); }
+.projects-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: calc(16 * var(--u)); margin-top: calc(28 * var(--u)); }
+.projects-foot .fiction-note { font-size: calc(12.5 * var(--u)); color: var(--muted); }
 
 @media (max-width: 760px) {
   .display { font-size: calc(48 * var(--u)); }
-  .nav a { padding-inline: calc(12 * var(--u)); font-size: calc(13 * var(--u)); }
+  .nav a { padding-inline: calc(8 * var(--u)); font-size: calc(12.5 * var(--u)); }
   .nav .nav-contact { display: none; } /* the square contact button is next to the nav */
   .nav .lang-switch { width: calc(34 * var(--u)); height: calc(34 * var(--u)); padding: 0; }
   .btn-contact { flex: none; width: calc(40 * var(--u)); height: calc(40 * var(--u)); padding: 0; border-radius: calc(10 * var(--u)); } /* square arrow button */

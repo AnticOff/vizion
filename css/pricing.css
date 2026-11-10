@@ -157,21 +157,6 @@
 .stepper--sm button:hover { background: var(--deep); color: var(--accent); }
 .stepper--sm .stepper-value { width: calc(34 * var(--u)); font-size: calc(14 * var(--u)); color: var(--deep); }
 
-/* contact fields */
-.field { display: grid; gap: calc(8 * var(--u)); }
-.field > label { font-size: calc(13 * var(--u)); color: var(--muted); }
-.field input, .field textarea {
-  width: 100%;
-  padding: calc(12 * var(--u)) calc(14 * var(--u));
-  font: inherit; font-size: calc(15 * var(--u));
-  color: var(--text);
-  background: rgba(255, 241, 239, .04);
-  border: 1px solid var(--hair-strong); border-radius: calc(8 * var(--u));
-}
-.field textarea { min-height: calc(110 * var(--u)); resize: vertical; }
-.field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: .7; }
-.fields-2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(16 * var(--u)); }
-
 /* ---------- cart ---------- */
 .cart {
   position: sticky; top: 24px;
@@ -253,7 +238,6 @@
   .cart { position: static; }
   .qf { padding: calc(16 * var(--u)) calc(12 * var(--u)); }
   .svc { padding: calc(12 * var(--u)); }
-  .fields-2 { grid-template-columns: 1fr; }
   .qf .segmented { width: 100%; overflow-x: auto; }
 
   .cart-bar {

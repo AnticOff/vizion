@@ -40,15 +40,16 @@
         <!-- partial:nav -->
         <nav class="nav" data-nav aria-label="Navigation principale">
           <span class="nav-pill" aria-hidden="true"></span>
-          <a href="index.html" aria-current="page">Accueil</a>
+          <a class="nav-home" href="index.html" aria-current="page">Accueil</a>
+          <a href="projets.html">Projets</a>
           <a href="bibliotheque.html">Bibliothèque</a>
           <a href="tarifs.html">Tarifs</a>
-          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="nav-contact" href="contact.html">Contact</a>
           <a class="lang-switch" href="../index.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
         </nav>
         <!-- /partial:nav -->
         <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
-        <a class="btn btn-contact" href="#contact" data-rise>
+        <a class="btn btn-contact" href="contact.html" data-rise>
           <span class="btn-label">Nous contacter</span><span class="arrow" aria-hidden="true">↗</span>
         </a>
       </div>
@@ -62,7 +63,7 @@
       <div class="about">
         <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (À PROPOS)</p>
         <p class="about-copy" data-rise>Designs, assets 3D, game design<br>et level design pour vos jeux.</p>
-        <a class="btn btn-cta" href="#contact" data-rise>Démarrer un projet <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn-cta" href="contact.html" data-rise>Démarrer un projet <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
 
       <div class="hero-media">
@@ -89,22 +90,22 @@
             <li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1 9 5 5 9 1 5Z" /></svg>Game design</li>
             <li><svg viewBox="0 0 10 10" aria-hidden="true"><rect x="1" y="2" width="3" height="6" /><rect x="6" y="2" width="3" height="6" /></svg>Level design</li>
           </ul>
-          <a class="stat-cta" href="#contact">Nous contacter <span aria-hidden="true">↗</span></a>
+          <a class="stat-cta" href="contact.html">Nous contacter <span aria-hidden="true">↗</span></a>
         </div>
         <div class="stat-card stat-photo">
           <img src="../assets/img/rook.webp" width="245" height="367" alt="" loading="lazy" decoding="async">
           <p class="feed">Rendu 3D</p>
           <div class="stat-photo-foot">
-            <p class="stat-num"><span data-count="3" data-count-on="load">3</span></p>
-            <p class="stat-caption">Projets<br>présentés</p>
+            <p class="stat-num"><span data-count="6" data-count-on="load">6</span></p>
+            <p class="stat-caption">Projets</p>
           </div>
         </div>
       </div>
 
       <div class="feature" data-rise>
-        <p class="feature-title">À la une<br><strong>The Forest 2</strong><br>Voir les projets</p>
-        <a class="feature-card" href="#projets">
-          <img src="../assets/img/feature.webp" width="1200" height="680" alt="Forêt d’automne traversée par un ruisseau, dans The Forest 2" loading="lazy" decoding="async">
+        <p class="feature-title">À la une<br><strong>inFAMOUS Second Son</strong><br>Le pouvoir Neon</p>
+        <a class="feature-card" href="projets.html#infamous">
+          <img src="../assets/img/project-neon.webp" width="1400" height="788" alt="Le pouvoir Neon d’inFAMOUS Second Son : traînées lumineuses violettes et bleues" loading="lazy" decoding="async">
           <span class="round-btn glass-light arrow" aria-hidden="true">↗</span>
           <span class="visually-hidden">Voir les projets</span>
         </a>
@@ -188,18 +189,31 @@
         </div>
         <ul class="project-grid is-pre" data-stagger>
           <li class="project">
-            <img src="../assets/img/project-zelda.webp" width="810" height="1080" alt="Un jeune héros en tunique verte, bouclier dans le dos, au bord d’un sentier en forêt" loading="lazy" decoding="async">
-            <p class="project-name">Zelda Ocarina Of Time</p>
+            <a href="projets.html#infamous">
+              <img src="../assets/img/project-neon.webp" width="1400" height="788" alt="Le pouvoir Neon d’inFAMOUS Second Son : traînées lumineuses violettes et bleues" loading="lazy" decoding="async">
+              <p class="project-name">inFAMOUS Second Son</p>
+              <p class="project-roles">Neon : concept art, effets, animation, Fetch</p>
+            </a>
           </li>
           <li class="project">
-            <img src="../assets/img/project-caravan.webp" width="432" height="576" alt="Un personnage debout sur un van jaune, au bord d’une falaise face à la mer" loading="lazy" decoding="async">
-            <p class="project-name">Sand Witch Caravane</p>
+            <a href="projets.html#tous-les-projets">
+              <img src="../assets/img/project-deaths-door.webp" width="597" height="335" alt="Affiche de Death’s Door : un corbeau tenant une épée lumineuse, entouré des personnages du jeu" loading="lazy" decoding="async">
+              <p class="project-name">Death’s Door</p>
+              <p class="project-roles">Game design, concept art</p>
+            </a>
           </li>
           <li class="project">
-            <img src="../assets/img/project-forest.webp" width="810" height="1080" alt="Ruisseau dans une forêt de pins, lumière du matin" loading="lazy" decoding="async">
-            <p class="project-name">The Forest 2</p>
+            <a href="projets.html#tous-les-projets">
+              <img src="../assets/img/project-firewatch.webp" width="447" height="447" alt="Affiche de Firewatch : une tour de guet dans une forêt orange au coucher du soleil" loading="lazy" decoding="async">
+              <p class="project-name">Firewatch</p>
+              <p class="project-roles">Modèles 3D, game design, level design</p>
+            </a>
           </li>
         </ul>
+        <div class="projects-foot">
+          <p class="fiction-note">Participations fictives : Vizion est un studio fictif, créé dans le cadre d’un projet scolaire.</p>
+          <a class="btn btn-ghost" href="projets.html">Tous les projets <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
 
@@ -250,8 +264,10 @@
         <p class="label" id="footer-nav-title"><span class="dot" aria-hidden="true">●</span> (NAVIGATION)</p>
         <ul>
           <li><a href="index.html">Accueil</a></li>
+          <li><a href="projets.html">Projets</a></li>
           <li><a href="bibliotheque.html">Bibliothèque 3D</a></li>
           <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -259,7 +275,7 @@
         <p class="label" id="footer-studio-title"><span class="dot" aria-hidden="true">●</span> (STUDIO)</p>
         <ul>
           <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#projets">Projets</a></li>
+          <li><a href="projets.html#infamous">Neon, inFAMOUS</a></li>
           <li><a href="tarifs.html#formules">Formules</a></li>
           <li><a href="tarifs.html#devis">Votre devis</a></li>
         </ul>
@@ -275,6 +291,8 @@
         </ul>
       </nav>
     </div>
+
+    <p class="artboard footer-fiction">Vizion est un studio fictif, créé dans le cadre d’un projet scolaire. Les jeux cités sur ce site appartiennent à leurs studios.</p>
 
     <div class="artboard footer-bottom">
       <p>© 2026 Vizion. Tous droits réservés.</p>

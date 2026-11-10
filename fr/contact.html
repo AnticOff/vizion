@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Vizion</title>
+  <meta name="description" content="Contacter Vizion : envoyez un message, consultez nos horaires et notre délai de réponse, et les réponses aux questions fréquentes.">
+  <meta name="theme-color" content="#3d0000">
+  <!-- partial:alternates -->
+  <link rel="alternate" hreflang="en" href="https://anticoff.github.io/vizion/contact.html">
+  <link rel="alternate" hreflang="fr" href="https://anticoff.github.io/vizion/fr/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://anticoff.github.io/vizion/contact.html">
+  <!-- /partial:alternates -->
+  <link rel="icon" href="../favicon.png" type="image/png">
+  <script>
+    document.documentElement.classList.add('js', 'is-loading');
+    setTimeout(function () { document.documentElement.classList.remove('is-loading'); }, 3000);
+  </script>
+  <link rel="preload" href="../assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/contact.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/motion.css">
+  <script type="module" src="../js/pages/contact.js"></script>
+  <script type="module" src="../js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- ============ PAGE HERO ============ -->
+  <header class="hero page-hero">
+    <div class="artboard hero-board page-board">
+      <svg class="signature" viewBox="0 0 1440 640" preserveAspectRatio="none" aria-hidden="true" data-line>
+        <path d="M760 -10 V520 H1450" />
+      </svg>
+
+      <div class="hero-top">
+        <!-- partial:nav -->
+        <nav class="nav" data-nav aria-label="Navigation principale">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a class="nav-home" href="index.html">Accueil</a>
+          <a href="projets.html">Projets</a>
+          <a href="bibliotheque.html">Bibliothèque</a>
+          <a href="tarifs.html">Tarifs</a>
+          <a class="nav-contact" href="contact.html" aria-current="page">Contact</a>
+          <a class="lang-switch" href="../contact.html" hreflang="en" lang="en" aria-label="English version of this page">EN</a>
+        </nav>
+        <!-- /partial:nav -->
+        <p class="meta" data-rise>Studio de création<br>Jeu vidéo</p>
+        <a class="btn btn-contact" href="#message" data-rise>
+          <span class="btn-label">Nous écrire</span><span class="arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <h1 class="display display--xl">
+        <span class="line" data-title-line><span>Parlons</span></span>
+        <span class="line" data-title-line><span>projet</span></span>
+      </h1>
+
+      <div class="page-intro">
+        <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (CONTACT)</p>
+        <p class="about-copy" data-rise>Parlez-nous de votre jeu, de votre équipe<br>et de vos délais. Nous répondons à chaque message.</p>
+        <a class="btn btn-cta" href="#message" data-rise>Envoyer un message <span class="arrow" aria-hidden="true">↓</span></a>
+      </div>
+
+      <div class="pill-stack">
+        <p class="glass-pill glass-light" data-rise><span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>Réponse sous [48 h]</p>
+        <p class="glass-pill glass-light" data-rise><span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>Français et anglais</p>
+        <p class="glass-pill glass-light" data-rise><span class="check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2.5 6.2 5 8.6 9.5 3.6" /></svg></span>Ouvert aux nouveaux projets</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ BAND ============ -->
+    <div class="band">
+      <div class="artboard band-row">
+        <p>Studio <span class="muted">Vizion</span></p>
+        <a class="band-scroll" href="#message">Nous écrire <span class="round-accent" aria-hidden="true">↓</span></a>
+        <p class="muted">Un aperçu de l’avenir</p>
+      </div>
+    </div>
+
+    <!-- ============ FORM + DETAILS ============ -->
+    <section class="contact-section" id="message" aria-labelledby="message-title">
+      <div class="artboard section-inner">
+        <div class="section-head">
+          <div>
+            <p class="label"><span class="dot" aria-hidden="true">●</span> (MESSAGE)</p>
+            <h2 class="section-title" id="message-title">Nous écrire</h2>
+          </div>
+          <p class="section-copy">Pour un prix, le <a class="link" href="tarifs.html#devis">panier de devis</a> est plus rapide&#8239;: il estime votre projet au fil de vos choix.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form" data-contact-form novalidate>
+            <fieldset>
+              <legend>C’est à quel sujet&#8239;?</legend>
+              <div class="chips">
+                <input type="radio" name="topic" id="topic-quote" value="Devis" checked><label for="topic-quote">Devis</label>
+                <input type="radio" name="topic" id="topic-partner" value="Partenariat"><label for="topic-partner">Partenariat</label>
+                <input type="radio" name="topic" id="topic-jobs" value="Recrutement"><label for="topic-jobs">Recrutement</label>
+                <input type="radio" name="topic" id="topic-press" value="Presse"><label for="topic-press">Presse</label>
+                <input type="radio" name="topic" id="topic-other" value="Autre"><label for="topic-other">Autre</label>
+              </div>
+            </fieldset>
+            <div class="fields-2">
+              <div class="field">
+                <label for="c-name">Nom</label>
+                <input id="c-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="c-email">E-mail</label>
+                <input id="c-email" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="c-company">Entreprise <span class="muted">(facultatif)</span></label>
+              <input id="c-company" name="company" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message" required placeholder="Votre jeu, votre besoin, votre délai…"></textarea>
+            </div>
+            <!-- spam trap for form services: real visitors never fill it -->
+            <input class="visually-hidden" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="form-notice" data-form-notice>Le formulaire n’est pas encore actif. En attendant, écrivez-nous à [adresse e-mail].</p>
+            <p class="form-privacy">Nous utilisons vos coordonnées uniquement pour vous répondre. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+            <button class="btn" type="submit">Envoyer le message <span class="arrow" aria-hidden="true">↗</span></button>
+            <p class="form-status" role="status" data-form-status></p>
+          </form>
+
+          <aside class="contact-card" aria-labelledby="card-title">
+            <h2 class="contact-card-title" id="card-title">Studio Vizion</h2>
+            <dl>
+              <div><dt>E-mail</dt><dd><a href="#">[adresse e-mail]</a></dd></div>
+              <div><dt>Horaires</dt><dd>[Du lundi au vendredi, 9 h – 18 h]<small>[Heure de Paris]</small></dd></div>
+              <div><dt>Délai de réponse</dt><dd>Sous [48 h] les jours ouvrés</dd></div>
+              <div><dt>Langues</dt><dd>Français et anglais</dd></div>
+              <div><dt>Disponibilité</dt><dd><span class="status-dot" aria-hidden="true"></span>Ouvert aux nouveaux projets</dd></div>
+            </dl>
+            <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="artboard section-inner">
+        <p class="label"><span class="dot" aria-hidden="true">●</span> (FAQ)</p>
+        <h2 class="section-title" id="faq-title">Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Comment obtenir un devis&#8239;?</summary>
+            <p>Utilisez le <a href="tarifs.html#devis">panier de devis</a>&#8239;: ajoutez vos prestations, l’estimation se met à jour au fil de vos choix, puis envoyez la demande. Le prix final est confirmé par un devis.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quels sont vos délais&#8239;?</summary>
+            <p>Les délais sont fixés dans chaque devis. Des options de délai accéléré ou prioritaire existent.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Le suivi après le rendu est-il inclus&#8239;?</summary>
+            <p>Oui, nous suivons chaque projet pendant et après le rendu. Un suivi prolongé peut être ajouté en option unique.</p>
+          </details>
+          <details class="faq-item">
+            <summary>À qui appartiennent les créations&#8239;?</summary>
+            <p>Après paiement intégral, les droits sur les livrables vous sont cédés pour les usages prévus au devis. Voir les <a href="conditions-generales.html">conditions générales</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Dans quelles langues travaillez-vous&#8239;?</summary>
+            <p>En français et en anglais.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Vizion est-il un vrai studio&#8239;?</summary>
+            <p>Non. Vizion est un studio fictif, créé dans le cadre d’un projet scolaire. Les jeux présentés dans les projets appartiennent à leurs studios.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- partial:footer -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-line">
+      <span class="rule" aria-hidden="true"></span>
+      <img class="footer-mark" src="../assets/img/wordmark.webp" width="720" height="300" alt="Vizion" loading="lazy" decoding="async">
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="artboard footer-grid">
+      <div class="footer-brand">
+        <p class="footer-tagline">Un aperçu de l’avenir.</p>
+        <p class="footer-copy">Designs, assets 3D, game design et level design pour vos jeux, avec un suivi pendant et après le rendu.</p>
+        <div class="footer-actions">
+          <a class="btn" href="tarifs.html#devis">Composer un devis <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost" href="#">[adresse e-mail] <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-labelledby="footer-nav-title">
+        <p class="label" id="footer-nav-title"><span class="dot" aria-hidden="true">●</span> (NAVIGATION)</p>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="bibliotheque.html">Bibliothèque 3D</a></li>
+          <li><a href="tarifs.html">Tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-studio-title">
+        <p class="label" id="footer-studio-title"><span class="dot" aria-hidden="true">●</span> (STUDIO)</p>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="projets.html#infamous">Neon, inFAMOUS</a></li>
+          <li><a href="tarifs.html#formules">Formules</a></li>
+          <li><a href="tarifs.html#devis">Votre devis</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col" aria-labelledby="footer-legal-title">
+        <p class="label" id="footer-legal-title"><span class="dot" aria-hidden="true">●</span> (LÉGAL)</p>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="conditions-generales.html">Conditions générales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="https://github.com/AnticOff/vizion" rel="noopener">Code source <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="artboard footer-fiction">Vizion est un studio fictif, créé dans le cadre d’un projet scolaire. Les jeux cités sur ce site appartiennent à leurs studios.</p>
+
+    <div class="artboard footer-bottom">
+      <p>© 2026 Vizion. Tous droits réservés.</p>
+      <p class="muted">Tarifs indicatifs hors taxes. Aucun cookie sur ce site.</p>
+      <a class="footer-lang" href="../contact.html" hreflang="en" lang="en">English</a>
+      <a class="footer-top" href="#">Haut de page <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+  <!-- /partial:footer -->
+</body>
+</html>

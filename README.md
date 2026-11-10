@@ -1,6 +1,7 @@
 # Vizion
 
-Bilingual static site (English by default, French in `fr/`), six pages per language — plain HTML, CSS and ES modules. No framework, no build step, no npm dependency.
+Bilingual static site (English by default, French in `fr/`), eight pages per language.
+**Vizion is a fictional studio, created for a school project**: the games shown belong to their studios and the credits are fictional (stated on the site) — plain HTML, CSS and ES modules. No framework, no build step, no npm dependency.
 The 3D library uses three.js r186, vendored in `vendor/three/` (MIT).
 
 ## Run
@@ -27,6 +28,9 @@ All paths are relative, so the site works under `https://<user>.github.io/<repo>
   `tools/test-estimate.mjs` and run `node tools/test-estimate.mjs`.
 - **Contact address**: set `CONTACT_EMAIL` in `js/data/pricing.js` (quote requests) and replace `[email address]` in
   `partials/en/footer.html` and `[adresse e-mail]` in `partials/fr/footer.html`, then run `node tools/sync-partials.mjs`.
+- **Contact form**: inactive while `endpoint` is empty in `js/data/contact.js`. Paste the endpoint of a form service
+  (e.g. Formspree) to activate it, then update the privacy policy (new recipient of the messages).
+  Placeholders on the contact page: `[48 h]`, hours and time zone, email.
 - **Legal pages**: every `[bracketed]` value (company form, address, SIREN, VAT, publication director, payment terms,
   retention periods, court) must be filled in, and the texts should be reviewed by a legal professional.
 
@@ -34,11 +38,13 @@ All paths are relative, so the site works under `https://<user>.github.io/<repo>
 
 | English (root) | French (`fr/`) | Content |
 |---|---|---|
-| `index.html` | `index.html` | Hero with the logo, manifesto, services panel, projects, links to the other pages |
+| `index.html` | `index.html` | Hero with the logo, manifesto, services panel, projects preview, links to the other pages |
+| `projects.html` | `projets.html` | Featured project (Neon, inFAMOUS Second Son) and six project cards filterable by role |
 | `library.html` | `bibliotheque.html` | 13 procedural 3D models: filters, one WebGL canvas, viewer with “Add to my quote” |
 | `pricing.html` | `tarifs.html` | Plans, unit prices, quote cart (quantities, one-time options, company size, deadline), pre-filled email |
 | `legal-notice.html` | `mentions-legales.html` | Publisher, host, intellectual property, credits |
 | `terms.html` | `conditions-generales.html` | Terms of use of the site and terms of sale |
+| `contact.html` | `contact.html` | Contact form (ready, inactive), contact details, FAQ |
 | `privacy.html` | `confidentialite.html` | Privacy policy (GDPR), no cookies, local storage for the cart |
 
 The language switch (EN / FR) sits at the end of the nav and in the footer; it links to the same page in the other
@@ -68,10 +74,13 @@ js/
   motion/             env, intro, counters, word-fill, nav-pill (sliding pill), reveal, stagger
   pages/library.js    library cards + filters; loads the 3D lazily
   pages/pricing.js    plans, table, quote cart UI
+  pages/projects.js   project filters by role
+  pages/contact.js    contact form (inactive until an endpoint is set)
   pages/legal.js      highlights the current section in the legal table of contents
   three/              build-models (procedural models), materials, library-scene (renderers, viewer)
   pricing/estimate.js quote maths (no DOM, tested by tools/test-estimate.mjs)
   data/models.js      library catalogue
+  data/contact.js     contact form endpoint (empty = inactive)
   data/pricing.js     prices, quantity and one-time services, options (EXAMPLES) — texts are { en, fr }
 vendor/three/         three.js r186 build + OrbitControls + RoomEnvironment
 tools/serve.mjs       dev server        tools/test-estimate.mjs  quote tests

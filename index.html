@@ -40,15 +40,16 @@
         <!-- partial:nav -->
         <nav class="nav" data-nav aria-label="Main navigation">
           <span class="nav-pill" aria-hidden="true"></span>
-          <a href="index.html" aria-current="page">Home</a>
+          <a class="nav-home" href="index.html" aria-current="page">Home</a>
+          <a href="projects.html">Projects</a>
           <a href="library.html">Library</a>
           <a href="pricing.html">Pricing</a>
-          <a class="nav-contact" href="#contact">Contact</a>
+          <a class="nav-contact" href="contact.html">Contact</a>
           <a class="lang-switch" href="fr/index.html" hreflang="fr" lang="fr" aria-label="Version française de cette page">FR</a>
         </nav>
         <!-- /partial:nav -->
         <p class="meta" data-rise>Creative studio<br>Video games</p>
-        <a class="btn btn-contact" href="#contact" data-rise>
+        <a class="btn btn-contact" href="contact.html" data-rise>
           <span class="btn-label">Contact us</span><span class="arrow" aria-hidden="true">↗</span>
         </a>
       </div>
@@ -62,7 +63,7 @@
       <div class="about">
         <p class="label" data-rise><span class="dot" aria-hidden="true">●</span> (ABOUT)</p>
         <p class="about-copy" data-rise>Designs, 3D assets, game design<br>and level design for your games.</p>
-        <a class="btn btn-cta" href="#contact" data-rise>Start a project <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn-cta" href="contact.html" data-rise>Start a project <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
 
       <div class="hero-media">
@@ -89,22 +90,22 @@
             <li><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M5 1 9 5 5 9 1 5Z" /></svg>Game design</li>
             <li><svg viewBox="0 0 10 10" aria-hidden="true"><rect x="1" y="2" width="3" height="6" /><rect x="6" y="2" width="3" height="6" /></svg>Level design</li>
           </ul>
-          <a class="stat-cta" href="#contact">Contact us <span aria-hidden="true">↗</span></a>
+          <a class="stat-cta" href="contact.html">Contact us <span aria-hidden="true">↗</span></a>
         </div>
         <div class="stat-card stat-photo">
           <img src="assets/img/rook.webp" width="245" height="367" alt="" loading="lazy" decoding="async">
           <p class="feed">3D render</p>
           <div class="stat-photo-foot">
-            <p class="stat-num"><span data-count="3" data-count-on="load">3</span></p>
-            <p class="stat-caption">Featured<br>projects</p>
+            <p class="stat-num"><span data-count="6" data-count-on="load">6</span></p>
+            <p class="stat-caption">Projects</p>
           </div>
         </div>
       </div>
 
       <div class="feature" data-rise>
-        <p class="feature-title">Featured<br><strong>The Forest 2</strong><br>See the projects</p>
-        <a class="feature-card" href="#projects">
-          <img src="assets/img/feature.webp" width="1200" height="680" alt="Autumn forest crossed by a stream, in The Forest 2" loading="lazy" decoding="async">
+        <p class="feature-title">Featured<br><strong>inFAMOUS Second Son</strong><br>The Neon power</p>
+        <a class="feature-card" href="projects.html#infamous">
+          <img src="assets/img/project-neon.webp" width="1400" height="788" alt="The Neon power of inFAMOUS Second Son: violet and blue light trails" loading="lazy" decoding="async">
           <span class="round-btn glass-light arrow" aria-hidden="true">↗</span>
           <span class="visually-hidden">See the projects</span>
         </a>
@@ -188,18 +189,31 @@
         </div>
         <ul class="project-grid is-pre" data-stagger>
           <li class="project">
-            <img src="assets/img/project-zelda.webp" width="810" height="1080" alt="A young hero in a green tunic, shield on his back, at the edge of a forest path" loading="lazy" decoding="async">
-            <p class="project-name">Zelda Ocarina Of Time</p>
+            <a href="projects.html#infamous">
+              <img src="assets/img/project-neon.webp" width="1400" height="788" alt="The Neon power of inFAMOUS Second Son: violet and blue light trails" loading="lazy" decoding="async">
+              <p class="project-name">inFAMOUS Second Son</p>
+              <p class="project-roles">Neon: concept art, VFX, animation, Fetch</p>
+            </a>
           </li>
           <li class="project">
-            <img src="assets/img/project-caravan.webp" width="432" height="576" alt="A character standing on a yellow van at the edge of a cliff facing the sea" loading="lazy" decoding="async">
-            <p class="project-name">Sand Witch Caravane</p>
+            <a href="projects.html#all-projects">
+              <img src="assets/img/project-deaths-door.webp" width="597" height="335" alt="Death’s Door key art: a crow holding a glowing sword, surrounded by the game’s characters" loading="lazy" decoding="async">
+              <p class="project-name">Death’s Door</p>
+              <p class="project-roles">Game design, concept art</p>
+            </a>
           </li>
           <li class="project">
-            <img src="assets/img/project-forest.webp" width="810" height="1080" alt="A stream in a pine forest, morning light" loading="lazy" decoding="async">
-            <p class="project-name">The Forest 2</p>
+            <a href="projects.html#all-projects">
+              <img src="assets/img/project-firewatch.webp" width="447" height="447" alt="Firewatch key art: a fire lookout tower in an orange forest at sunset" loading="lazy" decoding="async">
+              <p class="project-name">Firewatch</p>
+              <p class="project-roles">3D models, game design, level design</p>
+            </a>
           </li>
         </ul>
+        <div class="projects-foot">
+          <p class="fiction-note">Fictional credits: Vizion is a fictional studio, created for a school project.</p>
+          <a class="btn btn-ghost" href="projects.html">All projects <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
 
@@ -250,8 +264,10 @@
         <p class="label" id="footer-nav-title"><span class="dot" aria-hidden="true">●</span> (NAVIGATION)</p>
         <ul>
           <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
           <li><a href="library.html">3D library</a></li>
           <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -259,7 +275,7 @@
         <p class="label" id="footer-studio-title"><span class="dot" aria-hidden="true">●</span> (STUDIO)</p>
         <ul>
           <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="projects.html#infamous">Neon, inFAMOUS</a></li>
           <li><a href="pricing.html#plans">Plans</a></li>
           <li><a href="pricing.html#quote">Your quote</a></li>
         </ul>
@@ -275,6 +291,8 @@
         </ul>
       </nav>
     </div>
+
+    <p class="artboard footer-fiction">Vizion is a fictional studio, created for a school project. The games mentioned on this site belong to their respective studios.</p>
 
     <div class="artboard footer-bottom">
       <p>© 2026 Vizion. All rights reserved.</p>

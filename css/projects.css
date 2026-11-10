@@ -1,0 +1,116 @@
+/* Projects page: hero collage, featured project, filterable project cards, fictional-studio notice. */
+
+/* ---------- hero collage ---------- */
+.hero-collage {
+  position: absolute; z-index: 1;
+  left: calc(800 * var(--u)); top: calc(120 * var(--u));
+  width: calc(583 * var(--u)); height: calc(440 * var(--u));
+}
+.hero-collage img {
+  position: absolute;
+  border-radius: calc(8 * var(--u));
+  border: 1px solid var(--hair-strong);
+  height: auto; object-fit: cover;
+  box-shadow: 0 calc(20 * var(--u)) calc(50 * var(--u)) rgba(28, 0, 0, .55);
+  transition: transform .5s var(--ease);
+}
+.hero-collage .shot-1 { left: 0; top: calc(40 * var(--u)); width: calc(330 * var(--u)); aspect-ratio: 16 / 9; transform: rotate(-3deg); }
+.hero-collage .shot-2 { right: 0; top: 0; width: calc(230 * var(--u)); aspect-ratio: 1; transform: rotate(2.5deg); }
+.hero-collage .shot-3 { left: calc(150 * var(--u)); bottom: 0; width: calc(360 * var(--u)); aspect-ratio: 16 / 9; transform: rotate(1deg); }
+.hero-collage:hover .shot-1 { transform: rotate(-5deg) translateY(calc(-6 * var(--u))); }
+.hero-collage:hover .shot-2 { transform: rotate(4deg) translateY(calc(-6 * var(--u))); }
+.hero-collage:hover .shot-3 { transform: rotate(0deg) translateY(calc(-6 * var(--u))); }
+
+/* ---------- fictional-studio notice ---------- */
+.fiction-banner {
+  max-width: calc(760 * var(--u));
+  padding: calc(14 * var(--u)) calc(18 * var(--u));
+  border-left: 3px solid var(--accent);
+  background: rgba(255, 48, 48, .06);
+  font-size: calc(14 * var(--u)); line-height: 1.5; color: var(--muted);
+}
+.fiction-note { font-size: calc(12 * var(--u)); line-height: 1.45; color: var(--muted); }
+
+/* ---------- featured project ---------- */
+.featured { background: var(--deep); padding-top: calc(110 * var(--u)); }
+.featured-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: calc(56 * var(--u)); align-items: center; }
+.project-meta { margin-top: calc(14 * var(--u)); font-size: calc(14 * var(--u)); }
+.featured-sub {
+  margin-top: calc(28 * var(--u));
+  font-family: var(--font-display);
+  font-weight: 640; font-stretch: 104%;
+  font-size: calc(34 * var(--u)); line-height: 1; letter-spacing: -.03em;
+  text-transform: uppercase; color: var(--text);
+}
+.featured-copy { max-width: calc(520 * var(--u)); margin-top: calc(12 * var(--u)); font-size: calc(17 * var(--u)); line-height: 1.55; }
+.role-chips { display: flex; flex-wrap: wrap; gap: calc(8 * var(--u)); margin-top: calc(20 * var(--u)); }
+.role-chips li { padding: calc(6 * var(--u)) calc(12 * var(--u)); border: 1px solid var(--hair-strong); border-radius: 999px; font-size: calc(13 * var(--u)); }
+.featured-text .fiction-note { margin-top: calc(18 * var(--u)); }
+
+.featured-media { position: relative; padding-bottom: calc(90 * var(--u)); }
+.featured-key { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: calc(8 * var(--u)); }
+.featured-neon {
+  position: absolute; left: calc(-40 * var(--u)); bottom: 0;
+  width: 55%; margin: 0;
+  border: 1px solid var(--hair-strong); border-radius: calc(8 * var(--u));
+  overflow: hidden;
+  box-shadow: 0 calc(20 * var(--u)) calc(50 * var(--u)) rgba(28, 0, 0, .6);
+  transition: transform .5s var(--ease);
+}
+.featured-neon img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.featured-neon figcaption {
+  position: absolute; left: calc(12 * var(--u)); bottom: calc(10 * var(--u));
+  padding: calc(4 * var(--u)) calc(10 * var(--u));
+  border-radius: 999px; background: rgba(28, 0, 0, .7);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  font-size: calc(12 * var(--u));
+}
+.featured-media:hover .featured-neon { transform: translateY(calc(-6 * var(--u))) rotate(-1deg); }
+
+/* ---------- all projects ---------- */
+.all-projects { background: var(--deep); padding: calc(110 * var(--u)) 0 calc(150 * var(--u)); }
+.project-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(24 * var(--u)); margin-top: calc(40 * var(--u)); }
+.project-card {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--hair); border-radius: calc(8 * var(--u));
+  background: var(--card-dark);
+  overflow: hidden;
+  transition: transform .35s var(--ease), border-color .35s;
+}
+.project-card:hover { transform: translateY(calc(-6 * var(--u))); border-color: var(--hair-strong); }
+.project-card[hidden] { display: none; }
+.project-card-media { overflow: hidden; }
+.project-card-media img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .6s var(--ease); }
+.project-card:hover .project-card-media img { transform: scale(1.04); }
+.project-card-body { display: flex; flex-direction: column; flex: 1; padding: calc(20 * var(--u)) calc(22 * var(--u)) calc(22 * var(--u)); }
+.project-card-body .project-meta { margin-top: 0; font-size: calc(13 * var(--u)); }
+.project-card-title {
+  margin-top: calc(8 * var(--u));
+  font-family: var(--font-display);
+  font-weight: 640; font-stretch: 104%;
+  font-size: calc(26 * var(--u)); line-height: .95; letter-spacing: -.03em;
+  text-transform: uppercase; color: var(--accent);
+}
+.project-genre { margin-top: calc(6 * var(--u)); font-size: calc(13 * var(--u)); color: var(--muted); }
+.role-list { display: grid; gap: calc(12 * var(--u)); margin: calc(18 * var(--u)) 0 0; padding-top: calc(16 * var(--u)); border-top: 1px solid var(--hair); }
+.role-list dt { font-size: calc(13 * var(--u)); font-weight: 600; color: var(--accent); }
+.role-list dd { margin: calc(2 * var(--u)) 0 0; font-size: calc(14 * var(--u)); line-height: 1.5; }
+.project-card-body .fiction-note { margin-top: auto; padding-top: calc(18 * var(--u)); }
+
+@media (max-width: 1100px) {
+  .project-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .hero-collage { position: relative; left: auto; top: auto; width: auto; height: calc(300 * var(--u)); }
+  .hero-collage .shot-1 { width: calc(220 * var(--u)); top: calc(20 * var(--u)); }
+  .hero-collage .shot-2 { width: calc(140 * var(--u)); }
+  .hero-collage .shot-3 { left: calc(60 * var(--u)); width: calc(240 * var(--u)); }
+  .featured { padding-top: calc(72 * var(--u)); }
+  .featured-grid { grid-template-columns: 1fr; gap: calc(32 * var(--u)); }
+  .featured-neon { left: calc(-6 * var(--u)); width: 70%; }
+  .featured-sub { font-size: calc(28 * var(--u)); }
+  .all-projects { padding: calc(72 * var(--u)) 0 calc(96 * var(--u)); }
+  .project-cards { grid-template-columns: 1fr; }
+}
+
+.fiction-banner + .featured-grid { margin-top: calc(48 * var(--u)); }

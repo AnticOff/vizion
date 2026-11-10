@@ -20,6 +20,8 @@ const CHECK = process.argv.includes('--check');
 // [English page at the root, French page in fr/]
 export const PAGES = [
   ['index.html', 'index.html'],
+  ['projects.html', 'projets.html'],
+  ['contact.html', 'contact.html'],
   ['library.html', 'bibliotheque.html'],
   ['pricing.html', 'tarifs.html'],
   ['legal-notice.html', 'mentions-legales.html'],

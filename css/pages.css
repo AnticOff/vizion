@@ -84,6 +84,8 @@
 }
 .section-copy { max-width: calc(420 * var(--u)); font-size: calc(14.5 * var(--u)); line-height: 1.45; color: var(--muted); }
 
+.link { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+
 .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--hair-strong); }
 
 /* ---------- explore cards (home) ---------- */
@@ -133,6 +135,21 @@
 .cta-title { font-size: calc(55 * var(--u)); font-weight: 500; line-height: 1; letter-spacing: -.02em; }
 .cta-actions { display: flex; flex-wrap: wrap; gap: calc(12 * var(--u)); }
 
+/* ---------- form fields (pricing quote, contact) ---------- */
+.field { display: grid; gap: calc(8 * var(--u)); }
+.field > label { font-size: calc(13 * var(--u)); color: var(--muted); }
+.field input, .field textarea {
+  width: 100%;
+  padding: calc(12 * var(--u)) calc(14 * var(--u));
+  font: inherit; font-size: calc(15 * var(--u));
+  color: var(--text);
+  background: rgba(255, 241, 239, .04);
+  border: 1px solid var(--hair-strong); border-radius: calc(8 * var(--u));
+}
+.field textarea { min-height: calc(110 * var(--u)); resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: .7; }
+.fields-2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(16 * var(--u)); }
+
 /* ---------- phone ---------- */
 @media (max-width: 760px) {
   .page-board { height: auto; }
@@ -154,4 +171,5 @@
   .cta { padding: 0 calc(16 * var(--u)) calc(96 * var(--u)); }
   .cta-panel { width: auto; flex-direction: column; align-items: flex-start; padding: calc(32 * var(--u)) calc(20 * var(--u)); }
   .cta-title { font-size: calc(36 * var(--u)); }
+  .fields-2 { grid-template-columns: 1fr; }
 }

@@ -31,6 +31,13 @@
 }
 .footer-col a:hover { color: var(--accent); background-size: 100% 1px; }
 
+.footer-fiction {
+  margin-top: calc(48 * var(--u));
+  padding-inline: calc(69 * var(--u));
+  font-size: calc(12.5 * var(--u)); line-height: 1.5; color: var(--muted);
+}
+.footer-fiction + .footer-bottom { margin-top: calc(16 * var(--u)); }
+
 .footer-bottom {
   display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: calc(24 * var(--u));
   margin-top: calc(56 * var(--u));
@@ -47,5 +54,6 @@
   .footer-grid { grid-template-columns: 1fr 1fr; gap: calc(32 * var(--u)) calc(16 * var(--u)); margin-top: calc(40 * var(--u)); padding-inline: calc(16 * var(--u)); }
   .footer-brand { grid-column: 1 / -1; }
   .footer-tagline { font-size: calc(28 * var(--u)); }
+  .footer-fiction { padding-inline: calc(16 * var(--u)); margin-top: calc(32 * var(--u)); }
   .footer-bottom { grid-template-columns: 1fr; gap: calc(8 * var(--u)); padding-inline: calc(16 * var(--u)); }
 }
