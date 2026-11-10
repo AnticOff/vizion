@@ -4,7 +4,7 @@
 
 const KEY = 'vizion-quote-v1';
 
-export const emptyQuote = () => ({ items: {}, complexity: 'standard', size: 's', deadline: 'standard', references: [] });
+export const emptyQuote = () => ({ items: {}, size: 's', deadline: 'standard', references: [] });
 
 export function loadQuote() {
   try {
@@ -23,11 +23,11 @@ export function clearQuote() {
   try { localStorage.removeItem(KEY); } catch { /* storage unavailable */ }
 }
 
-// Adds a library model as a reference and one 3D asset to the quote.
+// Adds a library model as a reference and one standard 3D asset to the quote.
 export function addModelToQuote(modelId) {
   const quote = loadQuote();
   if (!quote.references.includes(modelId)) quote.references.push(modelId);
-  quote.items.assets = Math.min(999, (Number(quote.items.assets) || 0) + 1);
+  quote.items.assetsStandard = Math.min(999, (Number(quote.items.assetsStandard) || 0) + 1);
   saveQuote(quote);
   return quote;
 }

@@ -54,13 +54,37 @@ export const PLANS = [
 ];
 
 // Catalogue of the quote cart.
-//   type 'qty'  — sold by quantity (stepper). `price` per unit.
+//   type 'qty'  — sold by quantity (stepper). `price` per unit. Services with the same `group`
+//                 share one card in the cart (see SERVICE_GROUPS).
 //   type 'once' — sold once at most (checkbox). Either a flat `price`, or a `rate` applied to the adjusted total.
 export const SERVICES = [
+  // 3D assets: one line per size, the bigger and more detailed the asset, the higher the price
   {
-    id: 'assets', type: 'qty', price: 180, complexity: true,
-    label: { en: '3D assets', fr: 'Assets 3D' },
-    detail: { en: 'Engine-ready models', fr: 'Modèles prêts pour le moteur' },
+    id: 'assetsSmall', type: 'qty', group: 'assets', price: 25,
+    label: { en: 'Small 3D assets', fr: 'Petits assets 3D' },
+    short: { en: 'Small', fr: 'Petit' },
+    detail: { en: 'Small and simple, e.g. a tree or a plain sword', fr: 'Petit et simple, par exemple un arbre ou une épée peu détaillée' },
+    unit: { en: 'per asset', fr: 'par asset' },
+  },
+  {
+    id: 'assetsStandard', type: 'qty', group: 'assets', price: 45,
+    label: { en: 'Standard 3D assets', fr: 'Assets 3D standard' },
+    short: { en: 'Standard', fr: 'Standard' },
+    detail: { en: 'Medium size and detail', fr: 'Taille et détails moyens' },
+    unit: { en: 'per asset', fr: 'par asset' },
+  },
+  {
+    id: 'assetsLarge', type: 'qty', group: 'assets', price: 90,
+    label: { en: 'Large or detailed 3D assets', fr: 'Grands assets 3D détaillés' },
+    short: { en: 'Large / detailed', fr: 'Grand / détaillé' },
+    detail: { en: 'Bigger or more detailed objects', fr: 'Objets plus gros ou plus détaillés' },
+    unit: { en: 'per asset', fr: 'par asset' },
+  },
+  {
+    id: 'assetsHero', type: 'qty', group: 'assets', price: 160,
+    label: { en: 'Hero 3D assets', fr: 'Assets 3D héros' },
+    short: { en: 'Hero', fr: 'Héros' },
+    detail: { en: 'Main character or object, highly detailed', fr: 'Personnage ou objet principal, très détaillé' },
     unit: { en: 'per asset', fr: 'par asset' },
   },
   {
@@ -107,12 +131,13 @@ export const SERVICES = [
   },
 ];
 
-// Multiplier applied to the 3D assets line only.
-export const ASSET_COMPLEXITY = [
-  { id: 'simple', label: { en: 'Simple', fr: 'Simple' }, coef: 0.6 },
-  { id: 'standard', label: { en: 'Standard', fr: 'Standard' }, coef: 1 },
-  { id: 'hero', label: { en: 'Hero', fr: 'Héros' }, coef: 2.4 },
-];
+// Services shown together in one card of the quote cart.
+export const SERVICE_GROUPS = {
+  assets: {
+    label: { en: '3D assets', fr: 'Assets 3D' },
+    detail: { en: 'Engine-ready models, priced by size and detail', fr: 'Modèles prêts pour le moteur, au prix selon la taille et le détail' },
+  },
+};
 
 // Usage licence by company size (number of employees).
 export const COMPANY_SIZES = [

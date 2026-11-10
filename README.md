@@ -97,7 +97,9 @@ assets/fonts, assets/img
 - French pages in `fr/` reference shared files with `../`. A new page needs both languages and an entry in `PAGES`.
 - Translatable data is `{ en, fr }`; scripts read the page language from `<html lang>` (`js/i18n.js`).
 - Quote cart: a service of type `qty` is sold by quantity (stepper), a service of type `once` is a checkbox
-  (flat `price` or `rate` of the total). The cart is stored in `localStorage` (no personal data).
+  (flat `price` or `rate` of the total). Services with the same `group` share one card: 3D assets have one line per
+  size (small, standard, large / detailed, hero). The cart is stored in `localStorage` (no personal data); quotes
+  saved by older versions are migrated by `sanitizeQuote()` in `js/pricing/estimate.js`.
 - Motion is attached with `data-*` attributes: `data-title-line`, `data-hero-photo`, `data-drift`, `data-nav`,
   `data-rise`, `data-draw`, `data-line` (SVG signature), `data-count` (+ `data-suffix`, `data-count-on="load|reveal"`),
   `data-fill`, `data-trust`, `data-avatar`, `data-awards`, `data-stagger` (with class `is-pre`).

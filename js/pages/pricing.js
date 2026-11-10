@@ -6,7 +6,7 @@ import { initSlidingPill } from '../motion/nav-pill.js';
 import { LANG, t } from '../i18n.js';
 import * as cfg from '../data/pricing.js';
 import { MODELS } from '../data/models.js';
-import { estimate, recapText, formatters, sanitizeQty } from '../pricing/estimate.js';
+import { estimate, recapText, formatters, sanitizeQty, sanitizeQuote } from '../pricing/estimate.js';
 import { loadQuote, saveQuote, clearQuote, emptyQuote } from '../quote-store.js';
 
 const f = formatters(LANG);
@@ -17,7 +17,7 @@ const S = {
   en: {
     add: 'Add', remove: 'Remove', inQuote: 'In your quote',
     removeAria: (n) => `Remove ${n} from the quote`, dec: (n) => `One less: ${n}`, inc: (n) => `One more: ${n}`, qty: (n) => `Quantity: ${n}`,
-    perUnit: 'Billed per unit', once: 'One-time options', complexity: 'Asset complexity',
+    perUnit: 'Billed per unit', once: 'One-time options', fromPrice: (p) => `from ${p}`,
     from: 'from', exclVat: 'excl. VAT', custom: 'Custom', ofTotal: 'of the total',
     count: (n) => (n === 1 ? '1 service' : `${n} services`),
     subtotal: 'Subtotal', discount: 'Volume discount', licence: (s) => `Licence, ${s} employees`, deadline: (d) => `${d} deadline`,
@@ -31,7 +31,7 @@ const S = {
   fr: {
     add: 'Ajouter', remove: 'Retirer', inQuote: 'Dans votre devis',
     removeAria: (n) => `Retirer ${n} du devis`, dec: (n) => `Un de moins : ${n}`, inc: (n) => `Un de plus : ${n}`, qty: (n) => `Quantité : ${n}`,
-    perUnit: 'À l’unité', once: 'Options uniques', complexity: 'Complexité des assets',
+    perUnit: 'À l’unité', once: 'Options uniques', fromPrice: (p) => `à partir de ${p}`,
     from: 'à partir de', exclVat: 'HT', custom: 'Sur mesure', ofTotal: 'du total',
     count: (n) => (n === 1 ? '1 prestation' : `${n} prestations`),
     subtotal: 'Sous-total', discount: 'Remise volume', licence: (s) => `Licence ${s} salariés`, deadline: (d) => `Délai ${d.toLowerCase()}`,
@@ -68,20 +68,8 @@ $('[data-price-rows]').innerHTML = cfg.SERVICES.map((s) => `
   </tr>`).join('');
 
 // ---------- state ----------
-function sanitize(q) {
-  const clean = emptyQuote();
-  for (const s of cfg.SERVICES) {
-    const v = q.items?.[s.id];
-    if (s.type === 'qty' && sanitizeQty(v) > 0) clean.items[s.id] = sanitizeQty(v);
-    if (s.type === 'once' && v === true) clean.items[s.id] = true;
-  }
-  const pick = (list, id) => (list.some((x) => x.id === id) ? id : list[0].id);
-  clean.complexity = pick(cfg.ASSET_COMPLEXITY, q.complexity);
-  clean.size = pick(cfg.COMPANY_SIZES, q.size);
-  clean.deadline = pick(cfg.DEADLINES, q.deadline);
-  clean.references = (q.references || []).filter((id) => MODELS.some((m) => m.id === id));
-  return clean;
-}
+const MODEL_IDS = MODELS.map((m) => m.id);
+const sanitize = (q) => sanitizeQuote(q, cfg, MODEL_IDS);
 
 let quote = sanitize(loadQuote());
 const modelName = (id) => t(MODELS.find((m) => m.id === id).name);
@@ -93,29 +81,48 @@ const radioGroup = (name, items, labelKey = 'label') => `
     <input type="radio" name="${name}" id="${name}-${it.id}" value="${it.id}">
     <label for="${name}-${it.id}">${esc(t(it[labelKey]))}</label>`).join('')}`;
 
-const qtyCard = (s) => {
-  const name = esc(t(s.label));
+const qtyCard = (s, inGroup = false) => {
+  const label = t(s.label);
   return `
-  <div class="svc" data-svc="${s.id}">
+  <div class="${inGroup ? 'svc-row' : 'svc'}" data-svc="${s.id}">
     <div class="svc-info">
-      <p class="svc-name">${name} <span class="svc-badge">${S.inQuote}</span></p>
+      <p class="svc-name">${esc(inGroup ? t(s.short) : label)} <span class="svc-badge">${S.inQuote}</span></p>
       <p class="svc-detail">${esc(t(s.detail))}</p>
       <p class="svc-price"><strong>${f.euros(s.price)}</strong> ${esc(t(s.unit))}</p>
     </div>
     <div class="svc-action">
-      <button type="button" class="svc-add" data-act="add" data-id="${s.id}">+ ${S.add}</button>
+      <button type="button" class="svc-add" data-act="add" data-id="${s.id}" aria-label="${esc(`${S.add}: ${label}`)}">+ ${S.add}</button>
       <div class="stepper" data-stepper hidden>
-        <button type="button" data-act="dec" data-id="${s.id}" aria-label="${esc(S.dec(t(s.label)))}">−</button>
-        <input type="number" data-act="qty" data-id="${s.id}" inputmode="numeric" min="0" max="999" step="1" aria-label="${esc(S.qty(t(s.label)))}">
-        <button type="button" data-act="inc" data-id="${s.id}" aria-label="${esc(S.inc(t(s.label)))}">+</button>
+        <button type="button" data-act="dec" data-id="${s.id}" aria-label="${esc(S.dec(label))}">−</button>
+        <input type="number" data-act="qty" data-id="${s.id}" inputmode="numeric" min="0" max="999" step="1" aria-label="${esc(S.qty(label))}">
+        <button type="button" data-act="inc" data-id="${s.id}" aria-label="${esc(S.inc(label))}">+</button>
       </div>
     </div>
-    ${s.complexity ? `
-    <div class="svc-extra" data-complexity hidden>
-      <span class="qf-label" id="complexity-label">${S.complexity}</span>
-      <div class="segmented" role="radiogroup" aria-labelledby="complexity-label" data-radios="complexity">${radioGroup('complexity', cfg.ASSET_COMPLEXITY)}</div>
-    </div>` : ''}
   </div>`;
+};
+
+const groupCard = (key, items) => {
+  const group = cfg.SERVICE_GROUPS[key];
+  const from = Math.min(...items.map((s) => s.price));
+  return `
+  <div class="svc svc--group" data-group="${key}">
+    <div class="svc-info">
+      <p class="svc-name">${esc(t(group.label))} <span class="svc-from">${S.fromPrice(f.euros(from))}</span></p>
+      <p class="svc-detail">${esc(t(group.detail))}</p>
+    </div>
+    <div class="svc-rows">${items.map((s) => qtyCard(s, true)).join('')}</div>
+  </div>`;
+};
+
+// keeps the catalogue order; services of the same group are drawn once, together
+const qtyBlocks = () => {
+  const seen = new Set();
+  return cfg.SERVICES.filter((s) => s.type === 'qty').map((s) => {
+    if (!s.group) return qtyCard(s);
+    if (seen.has(s.group)) return '';
+    seen.add(s.group);
+    return groupCard(s.group, cfg.SERVICES.filter((x) => x.type === 'qty' && x.group === s.group));
+  }).join('');
 };
 
 const onceCard = (s) => `
@@ -131,7 +138,7 @@ const onceCard = (s) => `
 
 $('[data-catalog]').innerHTML = `
   <p class="catalog-group">${S.perUnit}</p>
-  ${cfg.SERVICES.filter((s) => s.type === 'qty').map(qtyCard).join('')}
+  ${qtyBlocks()}
   <p class="catalog-group">${S.once}</p>
   ${cfg.SERVICES.filter((s) => s.type === 'once').map(onceCard).join('')}`;
 
@@ -145,7 +152,7 @@ $$('[data-radios]', form).forEach((group) => {
 });
 
 function syncRadios() {
-  for (const name of ['size', 'deadline', 'complexity']) {
+  for (const name of ['size', 'deadline']) {
     const input = $(`#${name}-${quote[name]}`, form);
     if (!input) continue;
     input.checked = true;
@@ -164,12 +171,12 @@ function syncCatalog() {
       $('[data-stepper]', card).hidden = !value;
       const input = $('[data-act="qty"]', card);
       if (document.activeElement !== input) input.value = value ? String(value) : '';
-      const extra = $('[data-complexity]', card);
-      if (extra) extra.hidden = !value;
     } else {
       $('input[type="checkbox"]', card).checked = value === true;
     }
   }
+  // a group card is highlighted when one of its lines is in the quote
+  $$('[data-group]', form).forEach((g) => g.classList.toggle('is-in', Boolean($('.svc-row.is-in', g))));
 }
 
 // ---------- cart ----------
@@ -205,10 +212,9 @@ function renderCart(r) {
   const qtyLines = r.lines.map((l) => {
     const s = svc(l.id);
     const name = esc(t(s.label));
-    const sub = s.complexity ? ` <small>${esc(t(r.complexity.label).toLowerCase())}</small>` : '';
     return `
     <li class="cart-line">
-      <p class="cart-line-name">${name}${sub}</p>
+      <p class="cart-line-name">${name}</p>
       <p class="cart-line-total">${f.euros(l.amount)}</p>
       <div class="cart-line-sub">
         <div class="stepper stepper--sm">
@@ -308,7 +314,7 @@ form.addEventListener('change', (e) => {
   } else if (el.dataset.act === 'qty') {
     setQty(el.dataset.id, el.value);
     update();
-  } else if (el.type === 'radio' && ['size', 'deadline', 'complexity'].includes(el.name)) {
+  } else if (el.type === 'radio' && ['size', 'deadline'].includes(el.name)) {
     quote[el.name] = el.value;
     update();
   }
@@ -321,7 +327,7 @@ form.addEventListener('input', (e) => {
   setQty(el.dataset.id, el.value);
   saveQuote(quote);
   renderCart(estimate(quote, cfg));
-  $(`[data-svc="${el.dataset.id}"]`, form).classList.toggle('is-in', Boolean(quote.items[el.dataset.id]));
+  syncCatalog();
 });
 
 // ---------- send / copy / clear ----------

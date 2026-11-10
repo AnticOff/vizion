@@ -1,7 +1,8 @@
 // Quote maths, free of DOM code so it can be tested with plain Node.
+//   sanitizeQuote(raw, cfg, modelIds) -> a clean quote (also migrates quotes saved by older versions)
 //   estimate(quote, cfg)              -> numbers only (lines, discount, coefficients, extras, range)
 //   recapText(quote, result, contact, cfg, lang, modelNames) -> plain-text summary for e-mail or clipboard
-// `quote` = { items: { [serviceId]: number | boolean }, complexity, size, deadline, references }
+// `quote` = { items: { [serviceId]: number | boolean }, size, deadline, references }
 
 const find = (list, id) => list.find((item) => item.id === id) || list[0];
 const tr = (value, lang) => (value && typeof value === 'object' ? (value[lang] ?? value.en) : value);
@@ -11,9 +12,31 @@ export function sanitizeQty(value) {
   return Number.isFinite(n) ? Math.min(999, Math.max(0, n)) : 0;
 }
 
+// Before the size tiers, the cart had one `assets` line and a `complexity` choice.
+const LEGACY_ASSET_TIER = { simple: 'assetsSmall', standard: 'assetsStandard', hero: 'assetsHero' };
+
+export function sanitizeQuote(raw, cfg, modelIds = []) {
+  const q = raw && typeof raw === 'object' ? raw : {};
+  const items = { ...(q.items || {}) };
+  if (sanitizeQty(items.assets) > 0) {
+    const tier = LEGACY_ASSET_TIER[q.complexity] || 'assetsStandard';
+    items[tier] = sanitizeQty((Number(items[tier]) || 0) + sanitizeQty(items.assets));
+  }
+
+  const clean = { items: {}, size: cfg.COMPANY_SIZES[0].id, deadline: cfg.DEADLINES[0].id, references: [] };
+  for (const s of cfg.SERVICES) {
+    const v = items[s.id];
+    if (s.type === 'qty' && sanitizeQty(v) > 0) clean.items[s.id] = sanitizeQty(v);
+    if (s.type === 'once' && v === true) clean.items[s.id] = true;
+  }
+  if (cfg.COMPANY_SIZES.some((x) => x.id === q.size)) clean.size = q.size;
+  if (cfg.DEADLINES.some((x) => x.id === q.deadline)) clean.deadline = q.deadline;
+  clean.references = (Array.isArray(q.references) ? q.references : []).filter((id) => modelIds.includes(id));
+  return clean;
+}
+
 export function estimate(quote, cfg) {
   const items = quote.items || {};
-  const complexity = find(cfg.ASSET_COMPLEXITY, quote.complexity);
   const size = find(cfg.COMPANY_SIZES, quote.size);
   const deadline = find(cfg.DEADLINES, quote.deadline);
 
@@ -21,8 +44,7 @@ export function estimate(quote, cfg) {
   for (const s of cfg.SERVICES.filter((x) => x.type === 'qty')) {
     const qty = sanitizeQty(items[s.id]);
     if (!qty) continue;
-    const unitPrice = s.price * (s.complexity ? complexity.coef : 1);
-    lines.push({ id: s.id, qty, unitPrice, amount: qty * unitPrice });
+    lines.push({ id: s.id, qty, unitPrice: s.price, amount: qty * s.price });
   }
 
   const subtotal = lines.reduce((sum, l) => sum + l.amount, 0);
@@ -45,7 +67,7 @@ export function estimate(quote, cfg) {
   return {
     lines, extras, subtotal, discountRate, discount,
     nextTier: next ? { rate: next.rate, missing: next.min - subtotal } : null,
-    size, deadline, complexity, adjusted, total,
+    size, deadline, adjusted, total,
     count: lines.length + extras.length,
     low: round(total * low), high: round(total * high),
   };
@@ -89,10 +111,7 @@ export function recapText(quote, result, contact, cfg, lang = 'en', modelNames =
   out.push(`${L.contact}${c} ${contact.name || '—'} <${contact.email || '—'}>`, '');
   out.push(L.services);
   if (!result.count) out.push(L.none);
-  result.lines.forEach((l) => {
-    const extra = l.id === 'assets' ? ` (${tr(result.complexity.label, lang).toLowerCase()})` : '';
-    out.push(`- ${label(l.id)}${extra}${c} ${l.qty} × ${f.euros(l.unitPrice)} = ${f.euros(l.amount)}`);
-  });
+  result.lines.forEach((l) => out.push(`- ${label(l.id)}${c} ${l.qty} × ${f.euros(l.unitPrice)} = ${f.euros(l.amount)}`));
   result.extras.forEach((e) => out.push(`- ${label(e.id)}${c} ${e.rate ? `+${f.rate(e.rate)} = ` : `${L.oneTime} `}${f.euros(e.amount)}`));
   out.push(`${L.subtotal}${c} ${f.euros(result.subtotal)}`);
   if (result.discountRate) out.push(`${L.discount} (${f.rate(result.discountRate)})${c} −${f.euros(result.discount)}`);
